@@ -1,4 +1,4 @@
-import 'package:campe_app/model/campe_model.dart';
+import 'campe_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'campe_list.freezed.dart';
