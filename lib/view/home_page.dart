@@ -6,10 +6,6 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('カンペ'),
-      ),
-    );
+    return const Scaffold();
   }
 }
