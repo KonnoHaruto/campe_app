@@ -1,4 +1,4 @@
-import 'package:campe_app/view/home_page.dart';
+import 'view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
