@@ -12,10 +12,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: <String, WidgetBuilder>{
+        //遷移先ページのルートを定義
+        '/': (context) => const HomeScreen(),
+      },
       title: 'カンペアップ',
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
