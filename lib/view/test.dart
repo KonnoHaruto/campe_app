@@ -20,20 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
             label: ("Home"),
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.search),
-            label: ("Search"),
-          ),
-          BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.plusSquare),
             label: ("Team"),
           ),
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.sun),
             label: ("Weather"),
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.user),
-            label: ("Profile"),
           ),
         ],
       ),
