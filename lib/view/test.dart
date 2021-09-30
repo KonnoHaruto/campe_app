@@ -90,10 +90,6 @@ class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    return Scaffold(
-      body: Container(
-        color: Colors.white,
-      ),
-    );
+    return const Scaffold();
   }
 }
