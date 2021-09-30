@@ -1,6 +1,6 @@
 
-import 'view/test.dart';
 
+import 'view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -17,13 +17,8 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: <String, WidgetBuilder>{
-        //遷移先ページのルートを定義
-        '/': (context) =>  HomeScreen(),
-      },
       title: 'カンペアップ',
-      home:  HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }
