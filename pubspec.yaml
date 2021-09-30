@@ -17,6 +17,7 @@ dependencies:
   freezed_annotation: ^0.14.3
   flutter_state_notifier: ^0.7.1
   font_awesome_flutter: ^9.1.0
+  pedantic_mono: ^1.14.0+1
 
 dev_dependencies:
   flutter_test:
