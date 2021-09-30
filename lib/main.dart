@@ -1,3 +1,6 @@
+
+import 'view/test.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,9 +13,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'campe_app',
-      home: HomePage(),
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'カンペアップ',
+      home: HomeScreen(),
     );
   }
 }
