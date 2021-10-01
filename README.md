@@ -1,3 +1,4 @@
+[![wakatime](https://wakatime.com/badge/github/KonnoHaruto/campe_app.svg)](https://wakatime.com/badge/github/KonnoHaruto/campe_app)
 # campe_app
 
 A new Flutter project.
