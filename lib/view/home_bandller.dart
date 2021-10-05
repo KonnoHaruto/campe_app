@@ -8,12 +8,6 @@ import 'setting_page.dart';
 
 final pageProvider = StateProvider<PageType>((ref) => PageType.first);
 
-//Enum => 型列挙
-/*
-<特徴>
-・新しくインスタンス化出来ない
-・クラスかのように扱える
-・リストかのように扱える*/
 enum PageType { first, second, third }
 
 class HomeScreen extends StatelessWidget {
