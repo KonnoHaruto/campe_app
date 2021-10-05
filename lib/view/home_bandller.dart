@@ -20,32 +20,26 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   final List<Widget> _pageList = <Widget>[
     const HomePage(),
-    const AddingPage(),
     const SettingPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(
-      builder: (context, watch, child) {
-        final pageType = watch(pageProvider);
+    return Consumer(builder: (context, watch, child) {
+      final pageType = watch(pageProvider);
 
-        final tabItems = [
-          const BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.home),
-            label: 'Home',
-          ),
-          const BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.plusSquare),
-            label: 'Add',
-          ),
-          const BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.sun),
-            label: 'Setting',
-          )
-        ];
+      final tabItems = [
+        const BottomNavigationBarItem(
+          icon: FaIcon(FontAwesomeIcons.home),
+          label: 'Home',
+        ),
+        const BottomNavigationBarItem(
+          icon: FaIcon(FontAwesomeIcons.sun),
+          label: 'Setting',
+        )
+      ];
 
-        return Scaffold(
+      return Scaffold(
           body: _pageList[pageType.state.index],
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: pageType.state.index,
@@ -54,8 +48,19 @@ class HomeScreen extends StatelessWidget {
             },
             items: tabItems,
           ),
-        );
-      },
-    );
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Theme.of(context).accentColor,
+            child: Icon(Icons.add),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return const AddingPage();
+                },
+              ));
+            },
+          ));
+    });
   }
 }
