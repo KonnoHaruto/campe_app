@@ -4,6 +4,8 @@ import '../view_model/home_page_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'home_page.dart';
+
 class AddingPage extends ConsumerWidget {
   const AddingPage({Key? key}) : super(key: key);
   @override
@@ -33,6 +35,7 @@ class AddingPage extends ConsumerWidget {
                 onPressed: () {
                   viewModel.createCampe(viewModel.textEditingController.text);
                   viewModel.textEditingController.clear();
+
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
