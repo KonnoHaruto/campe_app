@@ -1,4 +1,6 @@
-import 'package:campe_app/model/campe_model.dart';
+import 'package:flutter/material.dart';
+
+import '../model/campe_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../model/campe_list.dart';
@@ -9,6 +11,8 @@ final CampeListProvider = StateNotifierProvider<CampeListViewModel, CampeList>(
 
 class CampeListViewModel extends StateNotifier<CampeList> {
   CampeListViewModel() : super(const CampeList());
+
+  final textEditingController = TextEditingController();
 
 //カンペを作成
   void createCampe(String text) {
