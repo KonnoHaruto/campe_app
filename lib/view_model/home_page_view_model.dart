@@ -1,3 +1,4 @@
+import 'package:campe_app/model/campe_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../model/campe_list.dart';
@@ -9,13 +10,28 @@ final CampeListProvider = StateNotifierProvider<CampeListViewModel, CampeList>(
 class CampeListViewModel extends StateNotifier<CampeList> {
   CampeListViewModel() : super(const CampeList());
 
+//カンペを作成
   void createCampe(String text) {
-    //TODO処理を書く。
+    final campe = CampeModel(id: state.campeList.length + 1, text: text);
+    final newList = [
+      campe,
+      ...state.campeList,
+    ];
+    state = state.copyWith(campeList: newList);
   }
+
+// カンペを削除
   void deleteCampe(int id) {
-    //TODO処理を書く
+    final deletedList =
+        state.campeList.where((campe) => campe.id != id).toList();
+    state = state.copyWith(campeList: deletedList);
   }
+
+// カンペを編集
   void updateCampe(int id, String text) {
-    //TODO処理を書く
+    final updatedList = state.campeList
+        .map((campe) => campe.id == id ? CampeModel(text: text) : campe)
+        .toList();
+    state = state.copyWith(campeList: updatedList);
   }
 }
