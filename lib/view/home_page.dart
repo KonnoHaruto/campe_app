@@ -16,7 +16,7 @@ class HomePage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('カンペ'),
       ),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: state.campeList.length,
         itemBuilder: (BuildContext context, int index) {
           final data = state.campeList[index];
@@ -36,6 +36,11 @@ class HomePage extends ConsumerWidget {
               },
               icon: const Icon(Icons.check_box_outline_blank),
             ),
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return const Divider(
+            height: 1,
           );
         },
       ),
