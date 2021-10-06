@@ -45,8 +45,9 @@ class HomeScreen extends StatelessWidget {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingActionButton(
+            // ignore: deprecated_member_use
             backgroundColor: Theme.of(context).accentColor,
-            child: Icon(Icons.add),
+            child: const Icon(Icons.add),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (BuildContext context) {

@@ -1,4 +1,5 @@
-import 'adding_page.dart';
+import 'update_page.dart';
+
 import '../view_model/home_page_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,8 +25,9 @@ class HomePage extends ConsumerWidget {
             onTap: () {
               Navigator.push<Widget>(
                 context,
+                //updatePage()
                 MaterialPageRoute(
-                  builder: (context) => const AddingPage(),
+                  builder: (context) => UpdatePage(data),
                 ),
               );
             },
