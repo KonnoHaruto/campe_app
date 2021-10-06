@@ -28,6 +28,7 @@ class AddingPage extends ConsumerWidget {
                 decoration: const InputDecoration(
                   hintText: "入力してください",
                 ),
+                autofocus: true, //ページ遷移時に自動フォーカス
                 maxLines: null,
                 textAlign: TextAlign.left,
               ),
