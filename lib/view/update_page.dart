@@ -10,7 +10,7 @@ class UpdatePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final viewModel = watch(CampeListProvider.notifier);
+    final viewModel = watch(campeListProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('編集画面'),

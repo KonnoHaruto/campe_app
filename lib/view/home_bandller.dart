@@ -10,7 +10,18 @@ final pageProvider = StateProvider<PageType>((ref) => PageType.first);
 
 enum PageType { first, second, third }
 
-class HomeScreen extends StatelessWidget {
+final tabItems = [
+  const BottomNavigationBarItem(
+    icon: FaIcon(FontAwesomeIcons.home),
+    label: 'Home',
+  ),
+  const BottomNavigationBarItem(
+    icon: FaIcon(FontAwesomeIcons.sun),
+    label: 'Setting',
+  )
+];
+
+class HomeScreen extends ConsumerWidget {
   HomeScreen({Key? key}) : super(key: key);
   final List<Widget> _pageList = <Widget>[
     const HomePage(),
@@ -18,44 +29,30 @@ class HomeScreen extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    return Consumer(builder: (context, watch, child) {
-      final pageType = watch(pageProvider);
+  Widget build(BuildContext context, ScopedReader watch) {
+    final pageType = watch(pageProvider);
 
-      final tabItems = [
-        const BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.home),
-          label: 'Home',
+    return Scaffold(
+        body: _pageList[pageType.state.index],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: pageType.state.index,
+          onTap: (index) {
+            pageType.state = PageType.values[index];
+          },
+          items: tabItems,
         ),
-        const BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.sun),
-          label: 'Setting',
-        )
-      ];
-
-      return Scaffold(
-          body: _pageList[pageType.state.index],
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: pageType.state.index,
-            onTap: (index) {
-              pageType.state = PageType.values[index];
-            },
-            items: tabItems,
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: FloatingActionButton(
-            // ignore: deprecated_member_use
-            backgroundColor: Theme.of(context).accentColor,
-            child: const Icon(Icons.add),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return const AddingPage();
-                },
-              ));
-            },
-          ));
-    });
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton(
+          // ignore: deprecated_member_use
+          backgroundColor: Theme.of(context).accentColor,
+          child: const Icon(Icons.add),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (BuildContext context) {
+                return const AddingPage();
+              },
+            ));
+          },
+        ));
   }
 }

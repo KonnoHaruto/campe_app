@@ -9,8 +9,8 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final state = watch(CampeListProvider);
-    final viewModel = watch(CampeListProvider.notifier);
+    final state = watch(campeListProvider);
+    final viewModel = watch(campeListProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(
