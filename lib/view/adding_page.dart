@@ -22,12 +22,14 @@ class AddingPage extends ConsumerWidget {
             Text(viewModel.textEditingController.text),
             SizedBox(
               width: 300,
-              height: 60,
+              height: 600,
               child: TextField(
                 controller: viewModel.textEditingController,
                 decoration: const InputDecoration(
                   hintText: "入力してください",
                 ),
+                maxLines: null,
+                textAlign: TextAlign.left,
               ),
             ),
             ElevatedButton(
