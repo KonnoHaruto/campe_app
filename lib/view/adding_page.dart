@@ -28,8 +28,10 @@ class AddingPage extends ConsumerWidget {
                 width: 300,
                 height: 60,
                 child: TextField(
-                  controller: viewModel.textEditingController,
-                ),
+                    controller: viewModel.textEditingController,
+                    decoration: const InputDecoration(
+                      hintText: "入力してください",
+                    )),
               ),
               ElevatedButton(
                 onPressed: () {
