@@ -1,6 +1,7 @@
-import '../view_model/home_page_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../view_model/home_page_view_model.dart';
 
 class AddingPage extends ConsumerWidget {
   const AddingPage({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class AddingPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('カンペ作成ページ'),
-        backgroundColor: Colors.teal.withOpacity(0.5),
+        // backgroundColor: Colors.teal.withOpacity(0.5),
       ),
       body: Center(
         child: Column(
