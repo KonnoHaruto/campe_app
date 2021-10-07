@@ -13,7 +13,7 @@ class UpdatePage extends ConsumerWidget {
     final viewModel = watch(campeListProvider.notifier);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('編集画面'),
+        title: const Text('編集'),
       ),
       body: Center(
         child: Column(

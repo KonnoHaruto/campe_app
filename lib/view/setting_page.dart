@@ -7,7 +7,7 @@ class SettingPage extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Setting'),
+        title: const Text('設定'),
         backgroundColor: Colors.grey.withOpacity(0.5),
       ),
       body: Container(
