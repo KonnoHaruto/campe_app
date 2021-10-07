@@ -33,17 +33,19 @@ class AddingPage extends ConsumerWidget {
                 textAlign: TextAlign.left,
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                viewModel.createCampe(viewModel.textEditingController.text);
-                viewModel.textEditingController.clear();
+            SafeArea(
+              child: ElevatedButton(
+                onPressed: () {
+                  viewModel.createCampe(viewModel.textEditingController.text);
+                  viewModel.textEditingController.clear();
 
-                Navigator.pop(context);
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).primaryColor,
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Theme.of(context).primaryColor,
+                ),
+                child: const Text('カンペを追加'),
               ),
-              child: const Text('カンペを追加'),
             ),
           ],
         ),

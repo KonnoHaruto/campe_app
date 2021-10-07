@@ -20,15 +20,12 @@ class UpdatePage extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // mainAxisSize: MainAxisSize.min,
           children: [
-            Text(viewModel.textEditingController.text),
+            // Text(viewModel.textEditingController.text),
             SizedBox(
               width: 300,
               height: 60,
               child: TextField(
                 controller: viewModel.textEditingController,
-                decoration: const InputDecoration(
-                  hintText: "入力してください",
-                ),
               ),
             ),
             ElevatedButton(
