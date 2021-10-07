@@ -6,9 +6,9 @@ import 'adding_page.dart';
 import 'home_page.dart';
 import 'setting_page.dart';
 
-final pageProvider = StateProvider<PageType>((ref) => PageType.first);
+final pageProvider = StateProvider<PageType>((ref) => PageType.home);
 
-enum PageType { first, second, third }
+enum PageType { home, setting, unKnown }
 
 final tabItems = [
   const BottomNavigationBarItem(
