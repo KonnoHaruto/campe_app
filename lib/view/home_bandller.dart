@@ -6,55 +6,38 @@ import 'adding_page.dart';
 import 'home_page.dart';
 import 'setting_page.dart';
 
-final pageProvider = StateProvider<PageType>((ref) => PageType.first);
 
-enum PageType { first, second, third }
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
-  final List<Widget> _pageList = <Widget>[
-    const HomePage(),
-    const SettingPage(),
-  ];
+  
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (context, watch, child) {
-      final pageType = watch(pageProvider);
+    return Scaffold(
+  floatingActionButton:FloatingActionButton( //Floating action button on Scaffold
+      onPressed: (){
+          //code to execute on button press
+      },
+      child: const Icon(Icons.send), //icon inside button
+  ),
 
-      final tabItems = [
-        const BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.home),
-          label: 'Home',
-        ),
-        const BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.sun),
-          label: 'Setting',
-        )
-      ];
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+  //floating action button position to center
 
-      return Scaffold(
-          body: _pageList[pageType.state.index],
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: pageType.state.index,
-            onTap: (index) {
-              pageType.state = PageType.values[index];
-            },
-            items: tabItems,
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: Theme.of(context).accentColor,
-            child: Icon(Icons.add),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return const AddingPage();
-                },
-              ));
-            },
-          ));
-    });
-  }
+  bottomNavigationBar: BottomAppBar( //bottom navigation bar on scaffold
+    color:Colors.redAccent,
+    shape: CircularNotchedRectangle(), //shape of notch
+    notchMargin: 5, //notche margin between floating button and bottom appbar
+    child: Row( //children inside bottom appbar
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        IconButton(icon: Icon(Icons.menu, color: Colors.white,), onPressed: () {},),
+        IconButton(icon: Icon(Icons.search, color: Colors.white,), onPressed: () {},),
+        IconButton(icon: Icon(Icons.print, color: Colors.white,), onPressed: () {},),
+        IconButton(icon: Icon(Icons.people, color: Colors.white,), onPressed: () {},),
+      ],
+    ),
+  ),;
 }
