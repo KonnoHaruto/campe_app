@@ -11,7 +11,7 @@ class AddingPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('カンペ作成ページ'),
+        title: const Text('カンペ作成'),
         // backgroundColor: Colors.teal.withOpacity(0.5),
       ),
       body: Center(
@@ -19,7 +19,7 @@ class AddingPage extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // mainAxisSize: MainAxisSize.min,
           children: [
-            Text(viewModel.textEditingController.text),
+            // Text(viewModel.textEditingController.text),
             SizedBox(
               width: 300,
               height: 600,

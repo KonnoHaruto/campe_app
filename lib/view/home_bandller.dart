@@ -13,11 +13,11 @@ enum PageType { home, setting, unKnown }
 final tabItems = [
   const BottomNavigationBarItem(
     icon: FaIcon(FontAwesomeIcons.home),
-    label: 'Home',
+    label: 'ホーム',
   ),
   const BottomNavigationBarItem(
     icon: FaIcon(FontAwesomeIcons.sun),
-    label: 'Setting',
+    label: '設定',
   )
 ];
 
