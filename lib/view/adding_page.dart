@@ -12,7 +12,7 @@ class AddingPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('カンペ作成ページ'),
-        backgroundColor: Colors.teal.withOpacity(0.5),
+        // backgroundColor: Colors.teal.withOpacity(0.5),
       ),
       body: Center(
         child: Column(

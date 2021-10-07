@@ -14,7 +14,10 @@ class HomePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('カンペ'),
+        title: const Text(
+          'カンペ',
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: ListView.separated(
         itemCount: state.campeList.length,
