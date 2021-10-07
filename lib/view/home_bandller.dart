@@ -18,7 +18,7 @@ final tabItems = [
   const BottomNavigationBarItem(
     icon: FaIcon(FontAwesomeIcons.sun),
     label: '設定',
-  )
+  ),
 ];
 
 class HomeScreen extends ConsumerWidget {

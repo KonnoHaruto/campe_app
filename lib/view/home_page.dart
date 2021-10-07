@@ -13,12 +13,6 @@ class HomePage extends ConsumerWidget {
     final viewModel = watch(campeListProvider.notifier);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'カンペ',
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
       body: ListView.separated(
         itemCount: state.campeList.length,
         itemBuilder: (BuildContext context, int index) {
@@ -37,7 +31,7 @@ class HomePage extends ConsumerWidget {
               onPressed: () {
                 viewModel.deleteCampe(data.id);
               },
-              icon: const Icon(Icons.check_box_outline_blank),
+              icon: const Icon(Icons.delete),
             ),
           );
         },
