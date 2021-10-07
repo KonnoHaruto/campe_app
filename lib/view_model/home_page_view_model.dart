@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../model/campe_list.dart';
 
-final CampeListProvider = StateNotifierProvider<CampeListViewModel, CampeList>(
+final campeListProvider = StateNotifierProvider<CampeListViewModel, CampeList>(
   (ref) => CampeListViewModel(),
 );
 

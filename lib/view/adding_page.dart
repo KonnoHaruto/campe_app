@@ -6,7 +6,7 @@ class AddingPage extends ConsumerWidget {
   const AddingPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final viewModel = watch(CampeListProvider.notifier);
+    final viewModel = watch(campeListProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(
@@ -16,7 +16,6 @@ class AddingPage extends ConsumerWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-
           // mainAxisSize: MainAxisSize.min,
           children: [
             Text(viewModel.textEditingController.text),
