@@ -5,12 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../model/campe_list.dart';
 
-final campeListProvider = StateNotifierProvider<CampeListViewModel, CampeList>(
-  (ref) => CampeListViewModel(),
+final campeListProvider = StateNotifierProvider<HomePageViewModel, CampeList>(
+  (ref) => HomePageViewModel(),
 );
 
-class CampeListViewModel extends StateNotifier<CampeList> {
-  CampeListViewModel() : super(const CampeList());
+class HomePageViewModel extends StateNotifier<CampeList> {
+  HomePageViewModel() : super(const CampeList());
 
   final textEditingController = TextEditingController();
 

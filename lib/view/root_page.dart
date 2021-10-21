@@ -10,7 +10,15 @@ final pageProvider = StateProvider<PageType>((ref) => PageType.home);
 
 enum PageType { home, setting, unKnown }
 
-final tabItems = [
+
+class RootPage extends ConsumerWidget {
+  RootPage ({Key? key}) : super(key: key);
+  final List<Widget> _pageList = <Widget>[
+    const HomePage(),
+    const SettingPage(),
+  ];
+
+  final _tabItems = [
   const BottomNavigationBarItem(
     icon: FaIcon(FontAwesomeIcons.home),
     label: 'ホーム',
@@ -20,13 +28,6 @@ final tabItems = [
     label: '設定',
   ),
 ];
-
-class HomeScreen extends ConsumerWidget {
-  HomeScreen({Key? key}) : super(key: key);
-  final List<Widget> _pageList = <Widget>[
-    const HomePage(),
-    const SettingPage(),
-  ];
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
@@ -39,7 +40,7 @@ class HomeScreen extends ConsumerWidget {
           onTap: (index) {
             pageType.state = PageType.values[index];
           },
-          items: tabItems,
+          items: _tabItems,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
