@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'view/root_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // firebaseの初期化
+  await Firebase.initializeApp();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -20,3 +25,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// リファレンスを指定
+CollectionReference campe 
+  = FirebaseFirestore.instance.collection('campe');
