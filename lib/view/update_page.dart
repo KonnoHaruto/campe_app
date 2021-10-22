@@ -1,16 +1,12 @@
-import '../model/campe_model.dart';
-import '../view_model/home_page_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class UpdatePage extends ConsumerWidget {
-  const UpdatePage(this.data, {Key? key}) : super(key: key);
+  const UpdatePage({Key? key}) : super(key: key);
 
-  final CampeModel data;
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final viewModel = watch(campeListProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('編集'),
@@ -21,21 +17,15 @@ class UpdatePage extends ConsumerWidget {
           // mainAxisSize: MainAxisSize.min,
           children: [
             // Text(viewModel.textEditingController.text),
-            SizedBox(
+            const SizedBox(
               width: 300,
               height: 60,
               child: TextField(
-                controller: viewModel.textEditingController,
+                // controller: viewModel.textEditingController,
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                viewModel.updateCampe(
-                    data.id, viewModel.textEditingController.text);
-                viewModel.textEditingController.clear();
-
-                Navigator.pop(context);
-              },
+              onPressed: () {},
               style: ElevatedButton.styleFrom(
                 primary: Theme.of(context).primaryColor,
               ),
