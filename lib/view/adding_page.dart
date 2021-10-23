@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AddingPage extends ConsumerWidget {
-  const AddingPage({Key? key}) : super(key: key);
+import '../reference.dart';
+
+class AddingPage extends StatelessWidget {
+  AddingPage({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('カンペ作成'),
@@ -16,12 +17,11 @@ class AddingPage extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // mainAxisSize: MainAxisSize.min,
           children: [
-            // Text(viewModel.textEditingController.text),
             const SizedBox(
               width: 300,
               height: 600,
               child: TextField(
-                // controller: viewModel.textEditingController,
+                controller: textController,
                 // ignore: unnecessary_const
                 decoration: const InputDecoration(
                   hintText: "入力してください",
@@ -33,7 +33,11 @@ class AddingPage extends ConsumerWidget {
             ),
             SafeArea(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  //  firestoreにadd
+                  campe.add({'content': textController.text});
+                  textController.clear();
+                },
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).primaryColor,
                 ),
