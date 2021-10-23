@@ -14,7 +14,7 @@ enum PageType { home, setting, unKnown }
 class RootPage extends ConsumerWidget {
   RootPage ({Key? key}) : super(key: key);
   final List<Widget> _pageList = <Widget>[
-    const HomePage(),
+    HomePage(),
     const SettingPage(),
   ];
 
@@ -50,7 +50,7 @@ class RootPage extends ConsumerWidget {
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (BuildContext context) {
-                return const AddingPage();
+                return AddingPage();
               },
             ));
           },

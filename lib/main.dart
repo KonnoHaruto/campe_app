@@ -25,7 +25,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// リファレンスを指定
-CollectionReference campe 
-  = FirebaseFirestore.instance.collection('campe');
