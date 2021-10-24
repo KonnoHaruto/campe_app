@@ -4,6 +4,8 @@ import '../reference.dart';
 
 class AddingPage extends StatelessWidget {
   AddingPage({Key? key}) : super(key: key);
+  //これでええんか？？？
+  final textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class AddingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(
+            SizedBox(
               width: 300,
               height: 600,
               child: TextField(
