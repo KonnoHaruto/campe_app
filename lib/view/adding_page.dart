@@ -5,20 +5,19 @@ import '../reference.dart';
 class AddingPage extends StatelessWidget {
   AddingPage({Key? key}) : super(key: key);
 
-  final TextEditingController textController
-    = TextEditingController();
+  // インスタンスを他のクラスでも使いたい。
+  // -> 詰まるところコンストラクタにこれがないといかん。。
+  final textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('カンペ作成'),
-        // backgroundColor: Colors.teal.withOpacity(0.5),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          // mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
               width: 300,
@@ -36,9 +35,9 @@ class AddingPage extends StatelessWidget {
             ),
             SafeArea(
               child: ElevatedButton(
-                onPressed: () {
-                  //  firestoreにadd
-                  campe.add({'content': textController.text});
+                // Is it true?? Huum.. I think boar code it is.
+                onPressed: () async {
+                await  campe.add({'content': textController.text});
                   textController.clear();
                 },
                 style: ElevatedButton.styleFrom(

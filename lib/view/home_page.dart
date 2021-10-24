@@ -5,10 +5,7 @@ import '../reference.dart';
 import 'loading_page.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
-  
-  final TextEditingController textController
-      =  TextEditingController();
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
