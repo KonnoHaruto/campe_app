@@ -4,8 +4,9 @@ import '../reference.dart';
 
 class AddingPage extends StatelessWidget {
   AddingPage({Key? key}) : super(key: key);
-  //これでええんか？？？
-  final textController = TextEditingController();
+
+  final TextEditingController textController
+    = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

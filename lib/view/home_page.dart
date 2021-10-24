@@ -6,7 +6,9 @@ import 'loading_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
-  TextEditingController textController = TextEditingController();
+  
+  final TextEditingController textController
+      =  TextEditingController();
 
   @override
   Widget build(BuildContext context) {
