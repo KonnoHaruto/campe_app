@@ -19,16 +19,12 @@ class HomePage extends StatelessWidget {
           children: [
             Flexible(
                 child: StreamBuilder(
-                    // streamにデータが流れてくると自動で再描画される
                     stream: campe.snapshots(),
-                    // QuerySnapshotはCollectionReferenceで
                     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                       if (!snapshot.hasData) {
                         return const LoadingPage();
                       }
                       return ListView(
-                        // data!はnullが入らないことを明示するためのもの・
-                        // 上のif文でnullが入った際の処理をしている。
                         children: snapshot.data!.docs.map((campes) {
                           return Center(
                             child: ListTile(

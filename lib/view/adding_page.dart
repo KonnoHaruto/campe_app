@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../reference.dart';
@@ -36,8 +37,27 @@ class AddingPage extends StatelessWidget {
             SafeArea(
               child: ElevatedButton(
                 // Is it true?? Huum.. I think boar code it is.
-                onPressed: () async {
-                await  campe.add({'content': textController.text});
+                onPressed: () {
+                  if (textController.text == "") {
+                    showDialog(
+                        context: context,
+                        builder: (_) {
+                          return CupertinoAlertDialog(
+                            title: const Text('テキストが未入力です'),
+                            content: const Text('テキストの入力を完了させてください'),
+                            actions: [
+                              CupertinoDialogAction(
+                                child: const Text('Ok'),
+                                isDestructiveAction: false,
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+                          );
+                        });
+                  }
+                  campe.add({'content': textController.text});
                   textController.clear();
                 },
                 style: ElevatedButton.styleFrom(
