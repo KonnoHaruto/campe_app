@@ -6,8 +6,6 @@ import '../reference.dart';
 class AddingPage extends StatelessWidget {
   AddingPage({Key? key}) : super(key: key);
 
-  // インスタンスを他のクラスでも使いたい。
-  // -> 詰まるところコンストラクタにこれがないといかん。。
   final textController = TextEditingController();
 
   @override
@@ -36,7 +34,6 @@ class AddingPage extends StatelessWidget {
             ),
             SafeArea(
               child: ElevatedButton(
-                // Is it true?? Huum.. I think boar code it is.
                 onPressed: () {
                   if (textController.text == "") {
                     showDialog(

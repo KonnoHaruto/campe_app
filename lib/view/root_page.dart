@@ -14,7 +14,7 @@ enum PageType { home, setting, unKnown }
 class RootPage extends ConsumerWidget {
   RootPage ({Key? key}) : super(key: key);
   final List<Widget> _pageList = <Widget>[
-    HomePage(),
+    const HomePage(),
     const SettingPage(),
   ];
 
