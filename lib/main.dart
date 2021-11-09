@@ -6,7 +6,6 @@ import 'view/root_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // firebaseの初期化
   await Firebase.initializeApp();
   runApp(const ProviderScope(child: MyApp()));
 }
