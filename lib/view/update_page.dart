@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-class UpdatePage extends StatelessWidget {
-  const UpdatePage({Key? key}) : super(key: key);
 
+class UpdatePage extends StatelessWidget {
+  UpdatePage({Key? key, required this.testTitle}) : super(key: key);
+
+    final String testTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -12,18 +14,19 @@ class UpdatePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          // mainAxisSize: MainAxisSize.min,
           children: [
-            // Text(viewModel.textEditingController.text),
-            const SizedBox(
+            SizedBox(
               width: 300,
               height: 60,
               child: TextField(
-                // controller: viewModel.textEditingController,
+                controller: TextEditingController(text: testTitle),
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                TextEditingController().clear();
+                Navigator.pop(context);
+              },
               style: ElevatedButton.styleFrom(
                 primary: Theme.of(context).primaryColor,
               ),
