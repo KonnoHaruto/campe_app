@@ -8,7 +8,7 @@ class SettingPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('設定'),
-        backgroundColor: Colors.grey.withOpacity(0.5),
+        elevation: 0,
       ),
       body: Container(
         color: Colors.white,
