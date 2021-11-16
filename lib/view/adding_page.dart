@@ -54,7 +54,8 @@ class AddingPage extends StatelessWidget {
                           );
                         });
                   }
-                  campe.add({'content': textController.text});
+                  campe.add({'content': textController.text, 'createdAt': DateTime.now()});
+                  //campe.orderBy("createdAt", descending: true);
                   textController.clear();
                 },
                 style: ElevatedButton.styleFrom(
