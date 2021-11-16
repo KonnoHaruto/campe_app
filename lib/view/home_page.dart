@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('campe'),
+        title: const Text('ホーム'),
         elevation: 0,
       ),
       body: Center(
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
           children: [
             Flexible(
                 child: StreamBuilder(
-                    stream: campe.snapshots(),
+                    stream: campeRef.snapshots(),
                     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                       if (!snapshot.hasData) {
                         return const LoadingPage();

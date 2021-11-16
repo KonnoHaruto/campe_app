@@ -35,27 +35,34 @@ class AddingPage extends StatelessWidget {
             SafeArea(
               child: ElevatedButton(
                 onPressed: () {
-                  if (textController.text == "") {
-                    showDialog(
-                        context: context,
-                        builder: (_) {
-                          return CupertinoAlertDialog(
-                            title: const Text('テキストが未入力です'),
-                            content: const Text('テキストの入力を完了させてください'),
-                            actions: [
-                              CupertinoDialogAction(
-                                child: const Text('Ok'),
-                                isDestructiveAction: false,
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ],
-                          );
-                        });
+                  try {
+                    if (textController.text == "") {
+                      showDialog(
+                          context: context,
+                          builder: (_) {
+                            return CupertinoAlertDialog(
+                              title: const Text('テキストが未入力です'),
+                              content: const Text('テキストの入力を完了させてください'),
+                              actions: [
+                                CupertinoDialogAction(
+                                  child: const Text('Ok'),
+                                  isDestructiveAction: false,
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          });
+                    } else {
+                      campeRef.add({'content': textController.text});
+                      textController.clear();
+                      Navigator.pop(context);
+                    }
+                  } catch (e) {
+                    // ignore: avoid_print
+                    print(e);
                   }
-                  campe.add({'content': textController.text});
-                  textController.clear();
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).primaryColor,
