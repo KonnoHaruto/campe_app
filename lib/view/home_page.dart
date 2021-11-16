@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                               onTap: () {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return UpdatePage(testTitle: campes['content'],);
+                                  return UpdatePage(oldText: campes['content'],);
                                 }));
                               },
                             ),
