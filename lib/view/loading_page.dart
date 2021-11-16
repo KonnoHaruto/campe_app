@@ -5,10 +5,8 @@ class LoadingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.red,
-        ),
+    return const Center(
+      child: Icon(Icons.refresh, size: 70,),
     );
   }
 }
