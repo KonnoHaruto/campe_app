@@ -1,12 +1,18 @@
+import 'package:campe_app/view/update_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../reference.dart';
 import 'loading_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,14 +37,18 @@ class HomePage extends StatelessWidget {
                               title: Text(campes['content']),
                               onLongPress: () {
                                 campes.reference.delete();
-                                //ignore: avoid_print
-                                print('deleted: $campes');
+                              },
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const UpdatePage();
+                                }));
                               },
                             ),
                           );
                         }).toList(),
                       );
-                    }))
+                    })),
           ],
         ),
       ),
