@@ -25,7 +25,9 @@ class _HomePageState extends State<HomePage> {
           children: [
             Flexible(
                 child: StreamBuilder(
-                    stream: campeRef.snapshots(),
+                    stream: campeRef
+                    .orderBy('createdAt', descending: false,)
+                    .snapshots(),
                     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                       if (!snapshot.hasData) {
                         return const LoadingPage();
