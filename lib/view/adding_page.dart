@@ -51,7 +51,7 @@ class _AddingPageState extends State<AddingPage> {
                               content: const Text('テキストの入力を完了させてください'),
                               actions: [
                                 CupertinoDialogAction(
-                                  child: const Text('Ok'),
+                                  child: const Text('OK'),
                                   isDestructiveAction: false,
                                   onPressed: () {
                                     Navigator.of(context).pop();
