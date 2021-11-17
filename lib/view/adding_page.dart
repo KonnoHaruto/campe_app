@@ -77,8 +77,7 @@ class _AddingPageState extends State<AddingPage> {
                             );
                           });
                     } else {
-                      final now = DateTime.now();
-                      campeRef.add({'content': textController.text, 'createdAt': now});
+                      campeRef.add({'content': textController.text, 'createdAt': DateTime.now()});
                       textController.clear();
                       Navigator.pop(context);
                       stopSpiner();

@@ -26,8 +26,11 @@ class _HomePageState extends State<HomePage> {
             Flexible(
                 child: StreamBuilder(
                     stream: campeRef
-                    .orderBy('createdAt', descending: false,)
-                    .snapshots(),
+                        .orderBy(
+                          'createdAt',
+                          descending: false,
+                        )
+                        .snapshots(),
                     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                       if (!snapshot.hasData) {
                         return const LoadingPage();
@@ -40,11 +43,13 @@ class _HomePageState extends State<HomePage> {
                               onLongPress: () {
                                 campes.reference.delete();
                               },
-                              onTap: () {
-                                Navigator.push(context,
+                              onTap: () async {
+                                var testCampe = await Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return UpdatePage(oldText: campes['content'],);
+                                  return UpdatePage(oldText: campes['content']);
                                 }));
+                                // ignore: avoid_print
+                                print(testCampe);
                               },
                             ),
                           );
