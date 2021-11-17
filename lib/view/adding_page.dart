@@ -12,12 +12,24 @@ class AddingPage extends StatefulWidget {
 class _AddingPageState extends State<AddingPage> {
   final textController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        leadingWidth: 90,
+        leading: TextButton(
+          child: const Text(
+            'キャンセル',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: const Text('カンペ作成'),
       ),
       body: SafeArea(
@@ -62,9 +74,9 @@ class _AddingPageState extends State<AddingPage> {
                           });
                     } else {
                       campeRef.add({
-                        'content': textController.text, 
+                        'content': textController.text,
                         'createdAt': DateTime.now(),
-                        });
+                      });
                       textController.clear();
                       Navigator.pop(context);
                     }
