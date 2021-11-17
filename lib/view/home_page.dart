@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../reference.dart';
-import 'loading_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                         .snapshots(),
                     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                       if (!snapshot.hasData) {
-                        return const LoadingPage();
+                        return const CircularProgressIndicator();
                       }
                       return ListView(
                         children: snapshot.data!.docs.map((campes) {
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                             campes.reference.update({
                               'content': '( 未入力 )',
                             });
-                          } else if(campes['content'] == bool) {
+                          } else if (campes['content'] == bool) {
                             campes.reference.update({
                               'content': '( 未入力 )',
                             });
