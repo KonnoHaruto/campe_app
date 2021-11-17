@@ -44,12 +44,12 @@ class _HomePageState extends State<HomePage> {
                                 campes.reference.delete();
                               },
                               onTap: () async {
-                                var testCampe = await Navigator.push(context,
+                                var updatedContent = await Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
                                   return UpdatePage(oldText: campes['content']);
                                 }));
                                 campes.reference.update({
-                                  'content': testCampe, 
+                                  'content': updatedContent,
                                   'updatedAt': DateTime.now()
                                 });
                               },
