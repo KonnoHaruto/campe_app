@@ -1,5 +1,6 @@
 import 'package:campe_app/view/update_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../reference.dart';
@@ -32,6 +33,15 @@ class _HomePageState extends State<HomePage> {
                       }
                       return ListView(
                         children: snapshot.data!.docs.map((campes) {
+                          if (campes['content'] == null) {
+                            campes.reference.update({
+                              'content': '( 未入力 )',
+                            });
+                          } else if(campes['content'] == bool) {
+                            campes.reference.update({
+                              'content': '( 未入力 )',
+                            });
+                          }
                           return Center(
                             child: ListTile(
                               title: Text(campes['content']),
@@ -39,8 +49,9 @@ class _HomePageState extends State<HomePage> {
                                 campes.reference.delete();
                               },
                               onTap: () async {
-                                var updatedContent = await Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
+                                var updatedContent =
+                                    await Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) {
                                   return UpdatePage(oldText: campes['content']);
                                 }));
                                 campes.reference.update({
