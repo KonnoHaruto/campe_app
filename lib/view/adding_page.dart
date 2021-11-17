@@ -32,7 +32,7 @@ class _AddingPageState extends State<AddingPage> {
                   controller: textController,
                   // ignore: unnecessary_const
                   decoration: const InputDecoration(
-                    hintText: "入力してください",
+                    hintText: "ここに入力",
                   ),
                   autofocus: true, //ページ遷移時に自動フォーカス
                   maxLines: null,
@@ -61,7 +61,10 @@ class _AddingPageState extends State<AddingPage> {
                             );
                           });
                     } else {
-                      campeRef.add({'content': textController.text, 'createdAt': DateTime.now()});
+                      campeRef.add({
+                        'content': textController.text, 
+                        'createdAt': DateTime.now(),
+                        });
                       textController.clear();
                       Navigator.pop(context);
                     }
