@@ -23,6 +23,38 @@ class _UpdatePageState extends State<UpdatePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        leadingWidth: 90,
+        leading: TextButton(
+            child: const Text(
+              'キャンセル',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            onPressed: () {
+              if (_textEditingController.text == "") {
+                showDialog(
+                    context: context,
+                    builder: (_) {
+                      return CupertinoAlertDialog(
+                        title: const Text('テキストが未入力です'),
+                        content: const Text('テキストの入力を完了させてください'),
+                        actions: [
+                          CupertinoDialogAction(
+                            child: const Text('OK'),
+                            isDestructiveAction: false,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ],
+                      );
+                    });
+              } else {
+                Navigator.pop(context, widget.oldText);
+              }
+            }),
         title: const Text('編集'),
       ),
       body: SafeArea(
