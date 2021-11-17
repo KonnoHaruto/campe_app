@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../reference.dart';
 import 'loading_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage2 extends StatelessWidget {
+  const HomePage2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
           children: [
             Flexible(
                 child: StreamBuilder(
-                    stream: campeRef.snapshots(),
+                    stream: campeRef.orderBy('createdAt', descending: false).snapshots(),
                     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                       if (!snapshot.hasData) {
                         return const LoadingPage();
