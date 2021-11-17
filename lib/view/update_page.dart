@@ -21,32 +21,35 @@ class _UpdatePageState extends State<UpdatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('編集'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 300,
-              height: 60,
-              child: TextField(
-                controller: _textEditingController,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 300,
+                height: 60,
+                child: TextField(
+                  controller: _textEditingController,
+                ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(
-                  context, _textEditingController.text
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).primaryColor,
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(
+                    context, _textEditingController.text
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Theme.of(context).primaryColor,
+                ),
+                child: const Text('カンペを追加'),
               ),
-              child: const Text('カンペを追加'),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
