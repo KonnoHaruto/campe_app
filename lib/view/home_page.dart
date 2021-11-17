@@ -48,8 +48,10 @@ class _HomePageState extends State<HomePage> {
                                     MaterialPageRoute(builder: (context) {
                                   return UpdatePage(oldText: campes['content']);
                                 }));
-                                // ignore: avoid_print
-                                print(testCampe);
+                                campes.reference.update({
+                                  'content': testCampe, 
+                                  'updatedAt': DateTime.now()
+                                });
                               },
                             ),
                           );
