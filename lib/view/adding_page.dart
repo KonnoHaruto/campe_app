@@ -12,6 +12,7 @@ class AddingPage extends StatefulWidget {
 class _AddingPageState extends State<AddingPage> {
   final textController = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
