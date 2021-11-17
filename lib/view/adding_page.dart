@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:campe_app/reference.dart';
-import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 
 class AddingPage extends StatefulWidget {
   const AddingPage({Key? key}) : super(key: key);
@@ -13,28 +12,15 @@ class AddingPage extends StatefulWidget {
 class _AddingPageState extends State<AddingPage> {
   final textController = TextEditingController();
 
-  bool showSpiner = false;
-
-  void startSpiner() {
-    setState(() {
-      showSpiner = true;
-    });
-  }
-
-  void stopSpiner() {
-    setState(() {
-      showSpiner = false;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('カンペ作成'),
       ),
-      body: ModalProgressHUD(
-        inAsyncCall: showSpiner,
+      body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +42,6 @@ class _AddingPageState extends State<AddingPage> {
               SafeArea(
                 child: ElevatedButton(
                   onPressed: () {
-                    startSpiner();
                     if (textController.text == "") {
                       showDialog(
                           context: context,
@@ -66,11 +51,10 @@ class _AddingPageState extends State<AddingPage> {
                               content: const Text('テキストの入力を完了させてください'),
                               actions: [
                                 CupertinoDialogAction(
-                                  child: const Text('Ok'),
+                                  child: const Text('OK'),
                                   isDestructiveAction: false,
                                   onPressed: () {
                                     Navigator.of(context).pop();
-                                    stopSpiner();
                                   },
                                 ),
                               ],
@@ -80,7 +64,6 @@ class _AddingPageState extends State<AddingPage> {
                       campeRef.add({'content': textController.text, 'createdAt': DateTime.now()});
                       textController.clear();
                       Navigator.pop(context);
-                      stopSpiner();
                     }
                   },
                   style: ElevatedButton.styleFrom(

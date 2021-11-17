@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class UpdatePage extends StatefulWidget {
@@ -14,39 +15,96 @@ class _UpdatePageState extends State<UpdatePage> {
   @override
   void initState() {
     super.initState();
-    _textEditingController 
-      = TextEditingController(text: widget.oldText);
+    _textEditingController = TextEditingController(text: widget.oldText);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        leadingWidth: 90,
+        leading: TextButton(
+            child: const Text(
+              'キャンセル',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            onPressed: () {
+              try {
+                if (_textEditingController.text == "") {
+                  showDialog(
+                      context: context,
+                      builder: (_) {
+                        return CupertinoAlertDialog(
+                          title: const Text('テキストが未入力です'),
+                          content: const Text('テキストの入力を完了させてください'),
+                          actions: [
+                            CupertinoDialogAction(
+                              child: const Text('OK'),
+                              isDestructiveAction: false,
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ],
+                        );
+                      });
+                } else {
+                  Navigator.pop(context, widget.oldText);
+                }
+              } catch (e) {
+                // ignore: avoid_print
+                print(e);
+              }
+            }),
         title: const Text('編集'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 300,
-              height: 60,
-              child: TextField(
-                controller: _textEditingController,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 300,
+                height: 60,
+                child: TextField(
+                  controller: _textEditingController,
+                ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(
-                  context, _textEditingController.text
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).primaryColor,
+              ElevatedButton(
+                onPressed: () {
+                  if (_textEditingController.text == "") {
+                    showDialog(
+                        context: context,
+                        builder: (_) {
+                          return CupertinoAlertDialog(
+                            title: const Text('テキストが未入力です'),
+                            content: const Text('テキストの入力を完了させてください'),
+                            actions: [
+                              CupertinoDialogAction(
+                                child: const Text('OK'),
+                                isDestructiveAction: false,
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
+                          );
+                        });
+                  } else {
+                    Navigator.pop(context, _textEditingController.text);
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Theme.of(context).primaryColor,
+                ),
+                child: const Text('編集を適用'),
               ),
-              child: const Text('カンペを追加'),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
