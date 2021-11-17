@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class UpdatePage extends StatefulWidget {
@@ -14,8 +15,7 @@ class _UpdatePageState extends State<UpdatePage> {
   @override
   void initState() {
     super.initState();
-    _textEditingController 
-      = TextEditingController(text: widget.oldText);
+    _textEditingController = TextEditingController(text: widget.oldText);
   }
 
   @override
@@ -39,14 +39,32 @@ class _UpdatePageState extends State<UpdatePage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(
-                    context, _textEditingController.text
-                  );
+                  if (_textEditingController.text == "") {
+                    showDialog(
+                        context: context,
+                        builder: (_) {
+                          return CupertinoAlertDialog(
+                            title: const Text('テキストが未入力です'),
+                            content: const Text('テキストの入力を完了させてください'),
+                            actions: [
+                              CupertinoDialogAction(
+                                child: const Text('OK'),
+                                isDestructiveAction: false,
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
+                          );
+                        });
+                  } else {
+                    Navigator.pop(context, _textEditingController.text);
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).primaryColor,
                 ),
-                child: const Text('カンペを追加'),
+                child: const Text('編集を適用'),
               ),
             ],
           ),
