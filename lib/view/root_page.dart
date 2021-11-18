@@ -8,7 +8,7 @@ import 'preview_page.dart';
 
 final pageProvider = StateProvider<PageType>((ref) => PageType.home);
 
-enum PageType { home, setting, unKnown }
+enum PageType { home, preview }
 
 
 class RootPage extends ConsumerWidget {
@@ -24,8 +24,8 @@ class RootPage extends ConsumerWidget {
     label: 'ホーム',
   ),
   const BottomNavigationBarItem(
-    icon: FaIcon(FontAwesomeIcons.sun),
-    label: '設定',
+    icon: FaIcon(FontAwesomeIcons.alignJustify),
+    label: 'プレビュー',
   ),
 ];
 
@@ -50,7 +50,7 @@ class RootPage extends ConsumerWidget {
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (BuildContext context) {
-                return AddingPage();
+                return const AddingPage();
               },
             ));
           },
