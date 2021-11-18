@@ -17,10 +17,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ホーム'),
-        elevation: 0,
-      ),
       body: Center(
         child: Column(
           children: [
