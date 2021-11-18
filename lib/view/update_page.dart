@@ -42,6 +42,7 @@ class _UpdatePageState extends State<UpdatePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Icon(Icons.flutter_dash),
               SizedBox(
                 width: 300,
                 height: 60,

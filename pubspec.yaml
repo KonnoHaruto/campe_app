@@ -22,6 +22,11 @@ dependencies:
   firebase_core: ^1.7.0
   cloud_firestore: ^2.5.4
   firebase_messaging: ^11.1.0
+  introduction_screen: ^2.1.0
+  flutter_native_splash:
+    # color: "#42a5f5"
+    # image: "assets/splash-logo.png"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -32,6 +37,8 @@ dev_dependencies:
 
   flutter_lints: ^1.0.0
 
-flutter:
+# flutter:
+#   assets:
+#     - assets/
 
   uses-material-design: true

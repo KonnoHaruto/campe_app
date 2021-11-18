@@ -13,59 +13,87 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Flexible(
-                child: StreamBuilder(
-                    stream: campeRef
-                        .orderBy(
-                          'createdAt',
-                          descending: false,
-                        )
-                        .snapshots(),
-                    builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                      if (!snapshot.hasData) {
-                        return const CircularProgressIndicator();
-                      }
-                      return ListView(
-                        children: snapshot.data!.docs.map((campes) {
-                          if (campes['content'] == null) {
-                            campes.reference.update({
-                              'content': '( 未入力 )',
-                            });
-                          } else if (campes['content'] == bool) {
-                            campes.reference.update({
-                              'content': '( 未入力 )',
-                            });
-                          }
-                          return Center(
-                            child: ListTile(
-                              title: Text(campes['content']),
-                              onLongPress: () {
-                                campes.reference.delete();
-                              },
-                              onTap: () async {
-                                var updatedContent =
-                                    await Navigator.push(context,
-                                        MaterialPageRoute(builder: (context) {
-                                  return UpdatePage(oldText: campes['content']);
-                                }));
-                                campes.reference.update({
-                                  'content': updatedContent,
-                                  'updatedAt': DateTime.now()
-                                });
-                              },
-                            ),
-                          );
-                        }).toList(),
-                      );
-                    })),
-          ],
+      appBar: AppBar(
+        elevation: 0,
+        title: const Text(
+          'Campe一覧',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.info),
+            onPressed: () {
+              showCupertinoDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return const CupertinoAlertDialog(
+                    title: Text(''),
+                    content: Text(''),
+                    actions: [],
+                  );
+                },
+              );
+            },
+          )
+        ],
+      ),
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Flexible(
+                  child: StreamBuilder(
+                      stream: campeRef
+                          .orderBy(
+                            'createdAt',
+                            descending: false,
+                          )
+                          .snapshots(),
+                      builder:
+                          (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if (!snapshot.hasData) {
+                          return const CircularProgressIndicator();
+                        }
+                        return ListView(
+                          children: snapshot.data!.docs.map((campes) {
+                            if (campes['content'] == null) {
+                              campes.reference.update({
+                                'content': '( 未入力 )',
+                              });
+                            } else if (campes['content'] == bool) {
+                              campes.reference.update({
+                                'content': '( 未入力 )',
+                              });
+                            }
+                            return Center(
+                              child: ListTile(
+                                dense: false,
+                                title: Text(campes['content'].toString()),
+                                onLongPress: () {
+                                  campes.reference.delete();
+                                },
+                                onTap: () async {
+                                  var updatedContent =
+                                      await Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                    return UpdatePage(
+                                        oldText: campes['content']);
+                                  }));
+                                  campes.reference.update({
+                                    'content': updatedContent,
+                                    'updatedAt': DateTime.now()
+                                  });
+                                },
+                              ),
+                            );
+                          }).toList(),
+                        );
+                      })),
+            ],
+          ),
         ),
       ),
     );
