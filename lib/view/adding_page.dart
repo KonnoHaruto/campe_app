@@ -51,6 +51,7 @@ class _AddingPageState extends State<AddingPage> {
                   textAlign: TextAlign.left,
                 ),
               ),
+<<<<<<< HEAD
               SafeArea(
                 child: ElevatedButton(
                   onPressed: () {
@@ -85,6 +86,37 @@ class _AddingPageState extends State<AddingPage> {
                     primary: Theme.of(context).primaryColor,
                   ),
                   child: const Text('カンペを追加'),
+=======
+            ),
+            SafeArea(
+              child: ElevatedButton(
+                onPressed: () {
+                  if (textController.text == "") {
+                    showDialog(
+                        context: context,
+                        builder: (_) {
+                          return CupertinoAlertDialog(
+                            title: const Text('テキストが未入力です'),
+                            content: const Text('テキストの入力を完了させてください'),
+                            actions: [
+                              CupertinoDialogAction(
+                                child: const Text('Ok'),
+                                isDestructiveAction: false,
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+                          );
+                        });
+                  }
+                  campe.add({'content': textController.text, 'createdAt': DateTime.now()});
+                  //campe.orderBy("createdAt", descending: true);
+                  textController.clear();
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Theme.of(context).primaryColor,
+>>>>>>> 593d85a545d4c61058bd16f4e762afe086b7b092
                 ),
               ),
             ],
