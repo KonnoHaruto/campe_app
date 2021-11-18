@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'adding_page.dart';
 import 'home_page.dart';
-import 'setting_page.dart';
+import 'preview_page.dart';
 
 final pageProvider = StateProvider<PageType>((ref) => PageType.home);
 
@@ -15,7 +15,7 @@ class RootPage extends ConsumerWidget {
   RootPage ({Key? key}) : super(key: key);
   final List<Widget> _pageList = <Widget>[
     const HomePage(),
-    const SettingPage(),
+    const PreviewPage(),
   ];
 
   final _tabItems = [

@@ -2,14 +2,14 @@ import 'package:campe_app/reference.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class SettingPage extends StatefulWidget {
-  const SettingPage({Key? key}) : super(key: key);
+class PreviewPage extends StatefulWidget {
+  const PreviewPage({Key? key}) : super(key: key);
 
   @override
-  State<SettingPage> createState() => _SettingPageState();
+  State<PreviewPage> createState() => _PreviewPageState();
 }
 
-class _SettingPageState extends State<SettingPage> {
+class _PreviewPageState extends State<PreviewPage> {
   @override
   Widget build(BuildContext context) {
     final PageController controller = PageController(initialPage: 0);
