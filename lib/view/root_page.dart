@@ -54,6 +54,7 @@ class RootPage extends ConsumerWidget {
               },
             ));
           },
-        ));
+        )
+        );
   }
 }

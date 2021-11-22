@@ -85,6 +85,7 @@ class _AddingPageState extends State<AddingPage> {
                     primary: Theme.of(context).primaryColor,
                   ),
                   child: const Text('カンペを追加'),
+                  
                 ),
               ),
             ],

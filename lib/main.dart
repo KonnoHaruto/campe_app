@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'view/registor_page.dart';
+import 'view/register_page.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: _customSwatch,
       ),
       title: 'カンペアップ',
-      home: RegistorPage(),
+      home: RegisterPage(),
     );
   }
 }
