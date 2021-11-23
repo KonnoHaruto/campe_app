@@ -1,4 +1,4 @@
-import 'package:campe_app/view/registor_page.dart';
+import 'package:campe_app/view/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -39,6 +39,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: _customSwatch,
         ),
         title: 'カンペアップ',
-        home: RegistorPage());
+        home: RegisterPage());
   }
 }

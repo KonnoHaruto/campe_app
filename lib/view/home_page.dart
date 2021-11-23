@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         elevation: 0,
         title: const Text(
-          'Campe一覧',
+          'Campe 一覧',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: <Widget>[
@@ -69,24 +69,30 @@ class _HomePageState extends State<HomePage> {
                               });
                             }
                             return Center(
-                              child: ListTile(
-                                dense: false,
-                                title: Text(campes['content'].toString()),
-                                onLongPress: () {
-                                  campes.reference.delete();
-                                },
-                                onTap: () async {
-                                  var updatedContent =
-                                      await Navigator.push(context,
-                                          MaterialPageRoute(builder: (context) {
-                                    return UpdatePage(
-                                        oldText: campes['content']);
-                                  }));
-                                  campes.reference.update({
-                                    'content': updatedContent,
-                                    'updatedAt': DateTime.now()
-                                  });
-                                },
+                              child: Card(
+                                elevation: 8,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: ListTile(
+                                  dense: false,
+                                  title: Text(campes['content'].toString()),
+                                  onLongPress: () {
+                                    campes.reference.delete();
+                                  },
+                                  onTap: () async {
+                                    var updatedContent = await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) {
+                                      return UpdatePage(
+                                          oldText: campes['content']);
+                                    }));
+                                    campes.reference.update({
+                                      'content': updatedContent,
+                                      'updatedAt': DateTime.now()
+                                    });
+                                  },
+                                ),
                               ),
                             );
                           }).toList(),
