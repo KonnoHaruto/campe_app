@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:campe_app/reference.dart';
+import '../reference.dart';
 
 class AddingPage extends StatefulWidget {
   const AddingPage({Key? key}) : super(key: key);

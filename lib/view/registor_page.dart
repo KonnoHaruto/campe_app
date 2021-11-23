@@ -1,4 +1,4 @@
-import 'package:campe_app/view/root_page.dart';
+import 'root_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -33,10 +33,15 @@ class RegistorPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30.0),
                       )
                     ),
-                    child: const Text('登録', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                    onPressed: () {
-                      signIn();
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    child: const Text('登録', 
+                    style: TextStyle(
+                      fontSize: 20, 
+                      fontWeight: FontWeight.bold,
+                      ),),
+                    onPressed: () async {
+                      await signIn();
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
                         return RootPage();
                       }));
                     },
