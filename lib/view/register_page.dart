@@ -1,6 +1,7 @@
 import 'package:campe_app/view/root_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({Key? key}) : super(key: key);
@@ -25,8 +26,8 @@ class RegisterPage extends StatelessWidget {
             children: <Widget>[
               Container(
                 padding: const EdgeInsets.only(top: 270),
-                child: const Icon(
-                  Icons.flutter_dash,
+                child: const  FaIcon(
+                  FontAwesomeIcons.user,
                   size: 100,
                 ),
               ),
