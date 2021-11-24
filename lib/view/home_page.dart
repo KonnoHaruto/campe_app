@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'update_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,6 +16,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +28,6 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: <Widget>[
-
           IconButton(
             icon: const FaIcon(FontAwesomeIcons.infoCircle),
             onPressed: () {
@@ -44,10 +47,10 @@ class _HomePageState extends State<HomePage> {
         leadingWidth: 90,
         leading: IconButton(
             icon: const FaIcon(FontAwesomeIcons.signInAlt),
-            onPressed: () {
+            onPressed: () async {
+              await _auth.signOut();
               Navigator.pop(context);
-            }
-              ),
+            }),
       ),
       body: SafeArea(
         child: Center(
