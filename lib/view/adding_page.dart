@@ -65,7 +65,7 @@ class _AddingPageState extends State<AddingPage> {
                                   child: const Text('OK'),
                                   isDestructiveAction: false,
                                   onPressed: () {
-                                    Navigator.of(context).pop();
+                                    Navigator.pop(context);
                                   },
                                 ),
                               ],
