@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'info_page.dart';
 import 'update_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,26 +22,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawerEdgeDragWidth: 0.0,
       appBar: AppBar(
         elevation: 0,
         title: const Text(
-          'Campe 一覧',
+          'カンペ 一覧',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: <Widget>[
           IconButton(
             icon: const FaIcon(FontAwesomeIcons.infoCircle),
             onPressed: () {
-              showCupertinoDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return const CupertinoAlertDialog(
-                    title: Text(''),
-                    content: Text(''),
-                    actions: [],
-                  );
-                },
-              );
+              Navigator.push(context, MaterialPageRoute(builder: (_) {
+                return const InfoPage();
+              }));
             },
           )
         ],
@@ -52,6 +47,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.pop(context);
             }),
       ),
+      drawer: Container(width: 100),
       body: SafeArea(
         child: Center(
           child: Column(
