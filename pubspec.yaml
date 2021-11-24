@@ -27,7 +27,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   freezed: ^0.14.5
   build_runner: ^2.1.2
 
@@ -37,5 +36,3 @@ dev_dependencies:
 flutter:
   assets:
     - assets/
-
-uses-material-design: true

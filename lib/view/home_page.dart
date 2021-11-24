@@ -1,4 +1,4 @@
-import 'package:campe_app/view/update_page.dart';
+import 'update_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

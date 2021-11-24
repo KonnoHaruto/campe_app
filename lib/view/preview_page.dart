@@ -1,6 +1,7 @@
-import 'package:campe_app/reference.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import '../reference.dart';
 
 class PreviewPage extends StatefulWidget {
   const PreviewPage({Key? key}) : super(key: key);
