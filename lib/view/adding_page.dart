@@ -42,11 +42,10 @@ class _AddingPageState extends State<AddingPage> {
                 height: 600,
                 child: TextField(
                   controller: textController,
-                  // ignore: unnecessary_const
                   decoration: const InputDecoration(
                     hintText: "ここに入力",
                   ),
-                  autofocus: true, //ページ遷移時に自動フォーカス
+                  autofocus: true,
                   maxLines: null,
                   textAlign: TextAlign.left,
                 ),
@@ -85,6 +84,7 @@ class _AddingPageState extends State<AddingPage> {
                     primary: Theme.of(context).primaryColor,
                   ),
                   child: const Text('カンペを追加'),
+                  
                 ),
               ),
             ],

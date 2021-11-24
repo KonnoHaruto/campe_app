@@ -2,6 +2,7 @@ import 'update_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../reference.dart';
 
@@ -19,12 +20,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         elevation: 0,
         title: const Text(
-          'Campe一覧',
+          'Campe 一覧',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: <Widget>[
+
           IconButton(
-            icon: const Icon(Icons.info),
+            icon: const FaIcon(FontAwesomeIcons.infoCircle),
             onPressed: () {
               showCupertinoDialog(
                 context: context,
@@ -39,6 +41,13 @@ class _HomePageState extends State<HomePage> {
             },
           )
         ],
+        leadingWidth: 90,
+        leading: IconButton(
+            icon: const FaIcon(FontAwesomeIcons.signInAlt),
+            onPressed: () {
+              Navigator.pop(context);
+            }
+              ),
       ),
       body: SafeArea(
         child: Center(
@@ -69,24 +78,30 @@ class _HomePageState extends State<HomePage> {
                               });
                             }
                             return Center(
-                              child: ListTile(
-                                dense: false,
-                                title: Text(campes['content'].toString()),
-                                onLongPress: () {
-                                  campes.reference.delete();
-                                },
-                                onTap: () async {
-                                  var updatedContent =
-                                      await Navigator.push(context,
-                                          MaterialPageRoute(builder: (context) {
-                                    return UpdatePage(
-                                        oldText: campes['content']);
-                                  }));
-                                  campes.reference.update({
-                                    'content': updatedContent,
-                                    'updatedAt': DateTime.now()
-                                  });
-                                },
+                              child: Card(
+                                elevation: 8,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: ListTile(
+                                  dense: false,
+                                  title: Text(campes['content'].toString()),
+                                  onLongPress: () {
+                                    campes.reference.delete();
+                                  },
+                                  onTap: () async {
+                                    var updatedContent = await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) {
+                                      return UpdatePage(
+                                          oldText: campes['content']);
+                                    }));
+                                    campes.reference.update({
+                                      'content': updatedContent,
+                                      'updatedAt': DateTime.now()
+                                    });
+                                  },
+                                ),
                               ),
                             );
                           }).toList(),

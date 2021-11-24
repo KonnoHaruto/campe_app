@@ -2,8 +2,8 @@ import 'root_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class RegistorPage extends StatelessWidget {
-  RegistorPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  RegisterPage({Key? key}) : super(key: key);
 
   final auth = FirebaseAuth.instance;
 

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class UpdatePage extends StatefulWidget {
   const UpdatePage({Key? key, required this.oldText}) : super(key: key);
@@ -42,12 +43,16 @@ class _UpdatePageState extends State<UpdatePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.flutter_dash),
+              const FaIcon(FontAwesomeIcons.surprise,
+              size:100),
               SizedBox(
                 width: 300,
-                height: 60,
+                height: 100,
                 child: TextField(
                   controller: _textEditingController,
+                  autofocus: true,
+                  maxLines: null,
+                  textAlign: TextAlign.left
                 ),
               ),
               ElevatedButton(

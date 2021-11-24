@@ -46,7 +46,7 @@ class RootPage extends ConsumerWidget {
         floatingActionButton: FloatingActionButton(
           // ignore: deprecated_member_use
           backgroundColor: Theme.of(context).accentColor,
-          child: const Icon(Icons.add),
+          child: const FaIcon(FontAwesomeIcons.plus),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (BuildContext context) {
@@ -54,6 +54,7 @@ class RootPage extends ConsumerWidget {
               },
             ));
           },
-        ));
+        )
+        );
   }
 }
