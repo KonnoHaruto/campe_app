@@ -34,14 +34,14 @@ class _AddingPageState extends State<AddingPage> {
         ),
         title: const Text('カンペ作成'),
       ),
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.only(top: 100),
+              child: SizedBox(
                 width: 300,
-                height: 600,
                 child: TextField(
                   controller: textController,
                   decoration: const InputDecoration(
@@ -52,7 +52,10 @@ class _AddingPageState extends State<AddingPage> {
                   textAlign: TextAlign.left,
                 ),
               ),
-              SafeArea(
+            ),
+            SafeArea(
+              child: Container(
+                padding: const EdgeInsets.only(top: 100),
                 child: ElevatedButton(
                   onPressed: () async {
                     if (textController.text == "") {
@@ -74,24 +77,22 @@ class _AddingPageState extends State<AddingPage> {
                             );
                           });
                     } else if (await Vibration.hasVibrator() != null) {
-                      Vibration.vibrate();
-                    } else {
+                      Vibration.vibrate(amplitude: 2000);
                       campeRef.add({
                         'content': textController.text,
                         'createdAt': DateTime.now(),
                       });
                       textController.clear();
                       Navigator.pop(context);
-                    }
-                  },
+                    }},
                   style: ElevatedButton.styleFrom(
                     primary: Theme.of(context).primaryColor,
                   ),
                   child: const Text('カンペを追加'),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
