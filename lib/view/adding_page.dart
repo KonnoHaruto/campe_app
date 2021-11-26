@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vibration/vibration.dart';
 
 import '../reference.dart';
 
@@ -53,7 +54,7 @@ class _AddingPageState extends State<AddingPage> {
               ),
               SafeArea(
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (textController.text == "") {
                       showDialog(
                           context: context,
@@ -72,6 +73,8 @@ class _AddingPageState extends State<AddingPage> {
                               ],
                             );
                           });
+                    } else if (await Vibration.hasVibrator() != null) {
+                      Vibration.vibrate();
                     } else {
                       campeRef.add({
                         'content': textController.text,
@@ -85,7 +88,6 @@ class _AddingPageState extends State<AddingPage> {
                     primary: Theme.of(context).primaryColor,
                   ),
                   child: const Text('カンペを追加'),
-                  
                 ),
               ),
             ],
