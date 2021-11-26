@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'root_page.dart';
 
@@ -19,15 +20,17 @@ class RegisterPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: <Widget>[
+              // Icon
               Container(
                 padding: const EdgeInsets.only(top: 270),
-                child: const Icon(Icons.flutter_dash, size: 100,),
+                child: const FaIcon(FontAwesomeIcons.userPlus, size: 100,),
                 ),
+              // TextButton
               Container(
                 padding: const EdgeInsets.only(top: 60),
                 child: SizedBox(
-                  width: 350,
-                  height: 100,
+                  width: 250,
+                  height: 80,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
@@ -38,7 +41,7 @@ class RegisterPage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 20, 
                       fontWeight: FontWeight.bold,
-                      ),),
+                      )),
                     onPressed: () async {
                       await signIn();
                       Navigator.push(context, MaterialPageRoute(

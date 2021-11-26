@@ -35,7 +35,6 @@ class _PreviewPageState extends State<PreviewPage> {
                       itemCount: snapshot.data!.docs.length,
                       itemBuilder: (context, campe) {
                         final campes = snapshot.data!.docs[campe];
-
                         return ListTile(
                           title: Center(
                             child: Text(

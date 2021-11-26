@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'color.dart';
 import 'view/register_page.dart';
 
 Future<void> main() async {
@@ -21,9 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: customSwatch,
-      ),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       title: 'カンペアップ',
       home: RegisterPage(),
     );
