@@ -90,6 +90,8 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - vibration (1.7.4-nullsafety.0):
+    - Flutter
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
@@ -98,6 +100,7 @@ DEPENDENCIES:
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `8.9.0`)
   - Flutter (from `Flutter`)
+  - vibration (from `.symlinks/plugins/vibration/ios`)
 
 SPEC REPOS:
   trunk:
@@ -127,6 +130,8 @@ EXTERNAL SOURCES:
     :tag: 8.9.0
   Flutter:
     :path: Flutter
+  vibration:
+    :path: ".symlinks/plugins/vibration/ios"
 
 CHECKOUT OPTIONS:
   FirebaseFirestore:
@@ -151,6 +156,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  vibration: 1ec279c4a1a7a646627b54039d812334b3f1114a
 
 PODFILE CHECKSUM: 0b7d74447a693e6083b5f7a1622c4e42541f4557
 
