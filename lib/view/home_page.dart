@@ -93,6 +93,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   child: ListTile(
                                     dense: false,
+                                    leading: const Text('index'),
                                     title: Text(campes['content'].toString()),
                                     onLongPress: () {
                                       campes.reference.delete();

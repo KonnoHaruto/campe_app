@@ -4,10 +4,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'root_page.dart';
 
-class RegisterPage extends StatelessWidget {
-  RegisterPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
   final auth = FirebaseAuth.instance;
+
+  late bool _isDisabled = false;
 
   Future<void> signIn() async {
     await auth.signInAnonymously();
@@ -23,8 +30,11 @@ class RegisterPage extends StatelessWidget {
               // Icon
               Container(
                 padding: const EdgeInsets.only(top: 270),
-                child: const FaIcon(FontAwesomeIcons.userPlus, size: 100,),
+                child: const FaIcon(
+                  FontAwesomeIcons.userPlus,
+                  size: 100,
                 ),
+              ),
               // TextButton
               Container(
                 padding: const EdgeInsets.only(top: 60),
@@ -33,22 +43,31 @@ class RegisterPage extends StatelessWidget {
                   height: 80,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      )
-                    ),
-                    child: const Text('登録', 
-                    style: TextStyle(
-                      fontSize: 20, 
-                      fontWeight: FontWeight.bold,
-                      )),
-                    onPressed: () async {
-                      await signIn();
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                        return RootPage();
-                      }));
-                    },
+                        shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    )),
+                    child: const Text('登録',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    // 連打対策
+                    onPressed: _isDisabled
+                        ? null
+                        : () async {
+                            setState(() {
+                              _isDisabled = true;
+                            });
+                            await Future.delayed(const Duration(seconds: 1));
+                            signIn();
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return RootPage();
+                            }));
+                            setState(() {
+                              _isDisabled = false;
+                            });
+                          },
                   ),
                 ),
               ),
