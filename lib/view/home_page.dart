@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(25),
-            bottomRight: Radius.circular(25) ,
+            bottomRight: Radius.circular(25),
           ),
         ),
         title: const Text(
@@ -70,11 +70,12 @@ class _HomePageState extends State<HomePage> {
                               descending: false,
                             )
                             .snapshots(),
-                        builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                        builder:
+                            (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                           if (!snapshot.hasData) {
                             return const CircularProgressIndicator();
                           }
-                          return ListView( 
+                          return ListView(
                             children: snapshot.data!.docs.map((campes) {
                               if (campes['content'] == null) {
                                 campes.reference.update({
@@ -96,12 +97,36 @@ class _HomePageState extends State<HomePage> {
                                     leading: const Text('index'),
                                     title: Text(campes['content'].toString()),
                                     onLongPress: () {
-                                      campes.reference.delete();
+                                      showDialog(
+                                          context: context,
+                                          builder: (_) {
+                                            return CupertinoAlertDialog(
+                                              title: const Text('削除しますか？'),
+                                              content:
+                                                  const Text('削除すると元に戻せなくなります'),
+                                              actions: [
+                                                CupertinoDialogAction(
+                                                  child: const Text('キャンセル'),
+                                                  isDestructiveAction: false,
+                                                  onPressed: () =>
+                                                      Navigator.pop(context),
+                                                ),
+                                                CupertinoDialogAction(
+                                                  child: const Text('削除'),
+                                                  isDestructiveAction: true,
+                                                  onPressed: () {
+                                                    campes.reference.delete();
+                                                    Navigator.pop(context);
+                                                  },
+                                                ),
+                                              ],
+                                            );
+                                          });
                                     },
                                     onTap: () async {
-                                      var updatedContent =
-                                          await Navigator.push(context,
-                                              MaterialPageRoute(builder: (context) {
+                                      var updatedContent = await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) {
                                         return UpdatePage(
                                             oldText: campes['content']);
                                       }));
