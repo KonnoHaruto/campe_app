@@ -94,9 +94,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   child: ListTile(
                                     dense: false,
-                                    leading: Text(''),
                                     title: Text(campes['content'].toString()),
                                     onLongPress: () {
+                                      // ダイアログはマテリアルで統一した方が美しい
                                       showDialog(
                                           context: context,
                                           builder: (_) {
