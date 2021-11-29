@@ -22,8 +22,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawerEdgeDragWidth: 0.0,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                             (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                           if (!snapshot.hasData) {
                             return const CircularProgressIndicator();
-                          }
+                          } 
                           return ListView(
                             children: snapshot.data!.docs.map((campes) {
                               if (campes['content'] == null) {
@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   child: ListTile(
                                     dense: false,
-                                    leading: const Text('index'),
+                                    leading: Text(''),
                                     title: Text(campes['content'].toString()),
                                     onLongPress: () {
                                       showDialog(
