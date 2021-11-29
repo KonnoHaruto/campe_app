@@ -52,6 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           fontWeight: FontWeight.bold,
                         )),
                     // 連打対策
+                    // Circle indicatorで
                     onPressed: _isDisabled
                         ? null
                         : () async {
@@ -63,7 +64,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
                               return RootPage();
-                            }));
+                            },
+                            fullscreenDialog: true,
+                            ));
                             setState(() {
                               _isDisabled = false;
                             });
