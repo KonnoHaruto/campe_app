@@ -36,4 +36,5 @@ dev_dependencies:
 
 flutter:
   assets:
+    - images/
     - assets/

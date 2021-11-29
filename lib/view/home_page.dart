@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: <Widget>[
-
           IconButton(
             icon: const FaIcon(FontAwesomeIcons.infoCircle),
             onPressed: () {
@@ -46,68 +45,77 @@ class _HomePageState extends State<HomePage> {
             icon: const FaIcon(FontAwesomeIcons.signInAlt),
             onPressed: () {
               Navigator.pop(context);
-            }
-              ),
+            }),
       ),
       body: SafeArea(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Flexible(
-                  child: StreamBuilder(
-                      stream: campeRef
-                          .orderBy(
-                            'createdAt',
-                            descending: false,
-                          )
-                          .snapshots(),
-                      builder:
-                          (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                        if (!snapshot.hasData) {
-                          return const CircularProgressIndicator();
-                        }
-                        return ListView(
-                          children: snapshot.data!.docs.map((campes) {
-                            if (campes['content'] == null) {
-                              campes.reference.update({
-                                'content': '( 未入力 )',
-                              });
-                            } else if (campes['content'] == bool) {
-                              campes.reference.update({
-                                'content': '( 未入力 )',
-                              });
+        child: SizedBox(
+          child: Container(
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage('images/background-image.png'),
+              fit: BoxFit.cover,
+            )),
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  Flexible(
+                      child: StreamBuilder(
+                          stream: campeRef
+                              .orderBy(
+                                'createdAt',
+                                descending: false,
+                              )
+                              .snapshots(),
+                          builder:
+                              (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                            if (!snapshot.hasData) {
+                              return const CircularProgressIndicator();
                             }
-                            return Center(
-                              child: Card(
-                                elevation: 8,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: ListTile(
-                                  dense: false,
-                                  title: Text(campes['content'].toString()),
-                                  onLongPress: () {
-                                    campes.reference.delete();
-                                  },
-                                  onTap: () async {
-                                    var updatedContent = await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) {
-                                      return UpdatePage(
-                                          oldText: campes['content']);
-                                    }));
-                                    campes.reference.update({
-                                      'content': updatedContent,
-                                      'updatedAt': DateTime.now()
-                                    });
-                                  },
-                                ),
-                              ),
+                            return ListView(
+                              children: snapshot.data!.docs.map((campes) {
+                                if (campes['content'] == null) {
+                                  campes.reference.update({
+                                    'content': '( 未入力 )',
+                                  });
+                                } else if (campes['content'] == bool) {
+                                  campes.reference.update({
+                                    'content': '( 未入力 )',
+                                  });
+                                }
+                                return Center(
+                                  child: Card(
+                                    elevation: 8,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: ListTile(
+                                      dense: false,
+                                      title: Text(campes['content'].toString()),
+                                      onLongPress: () {
+                                        campes.reference.delete();
+                                      },
+                                      onTap: () async {
+                                        var updatedContent =
+                                            await Navigator.push(context,
+                                                MaterialPageRoute(
+                                                    builder: (context) {
+                                          return UpdatePage(
+                                              oldText: campes['content']);
+                                        }));
+                                        campes.reference.update({
+                                          'content': updatedContent,
+                                          'updatedAt': DateTime.now()
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
                             );
-                          }).toList(),
-                        );
-                      })),
-            ],
+                          })),
+                ],
+              ),
+            ),
           ),
         ),
       ),
