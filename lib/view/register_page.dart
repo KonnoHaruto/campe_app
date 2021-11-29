@@ -4,13 +4,20 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'root_page.dart';
 
-class RegisterPage extends StatelessWidget {
-  RegisterPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
   final auth = FirebaseAuth.instance;
 
+  late bool _isDisabled = false;
+
   Future<void> signIn() async {
-    await auth.signInAnonymously();
+    auth.signInAnonymously();
   }
 
   @override

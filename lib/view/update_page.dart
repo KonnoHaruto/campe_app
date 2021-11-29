@@ -45,14 +45,17 @@ class _UpdatePageState extends State<UpdatePage> {
             children: [
               const FaIcon(FontAwesomeIcons.surprise,
               size:100),
-              SizedBox(
-                width: 300,
-                height: 100,
-                child: TextField(
-                  controller: _textEditingController,
-                  autofocus: true,
-                  maxLines: null,
-                  textAlign: TextAlign.left
+              Container(
+                margin: const EdgeInsets.only(top:15),
+                child: SizedBox(
+                  width: 300,
+                  height: 100,
+                  child: TextField(
+                    controller: _textEditingController,
+                    autofocus: true,
+                    maxLines: null,
+                    textAlign: TextAlign.left,
+                  ),
                 ),
               ),
               ElevatedButton(
