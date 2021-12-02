@@ -14,7 +14,6 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final auth = FirebaseAuth.instance;
 
-  late bool _isDisabled = false;
 
   Future<void> signIn() async {
     await auth.signInAnonymously();
@@ -51,15 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         )),
-                    // 連打対策
-                    // Circle indicatorで
-                    onPressed: _isDisabled
-                        ? null
-                        : () async {
-                            setState(() {
-                              _isDisabled = true;
-                            });
-                            await Future.delayed(const Duration(seconds: 1));
+                    onPressed: () {
                             signIn();
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
@@ -67,9 +58,6 @@ class _RegisterPageState extends State<RegisterPage> {
                             },
                             fullscreenDialog: true,
                             ));
-                            setState(() {
-                              _isDisabled = false;
-                            });
                           },
                   ),
                 ),
