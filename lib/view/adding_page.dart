@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,7 +14,9 @@ class AddingPage extends StatefulWidget {
 }
 
 class _AddingPageState extends State<AddingPage> {
+  final _auth = FirebaseAuth.instance;
   final textController = TextEditingController();
+  late User? user = _auth.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -85,6 +88,7 @@ class _AddingPageState extends State<AddingPage> {
             campeRef.add({
               'content': textController.text,
               'createdAt': DateTime.now(),
+              'user': user
             });
             textController.clear();
             Navigator.pop(context);
