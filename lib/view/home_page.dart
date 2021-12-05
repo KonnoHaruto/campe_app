@@ -65,10 +65,7 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsetsDirectional.only(top: 15),
                     child: StreamBuilder(
                         stream: campeRef
-                            .orderBy(
-                              'createdAt',
-                              descending: false,
-                            )
+                            .orderBy('createdAt', descending: false)
                             .snapshots(),
                         builder:
                             (context, AsyncSnapshot<QuerySnapshot> snapshot) {
