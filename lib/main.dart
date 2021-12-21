@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       title: 'カンペアップ',
-      home: RegisterPage(),
+      home: const RegisterPage(),
     );
   }
 }

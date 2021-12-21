@@ -22,13 +22,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawerEdgeDragWidth: 0.0,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(25),
-            bottomRight: Radius.circular(25) ,
+            bottomRight: Radius.circular(25),
           ),
         ),
         title: const Text(
@@ -55,72 +55,65 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: SizedBox(
-          child: Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage('images/background-image.png'),
-              fit: BoxFit.cover,
-            )),
-            child: Center(
-              child: Column(
-                children: <Widget>[
-                  Flexible(
-                      child: StreamBuilder(
-                          stream: campeRef
-                              .orderBy(
-                                'createdAt',
-                                descending: false,
-                              )
-                              .snapshots(),
-                          builder:
-                              (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                            if (!snapshot.hasData) {
-                              return const CircularProgressIndicator();
-                            }
-                            return ListView(
-                              children: snapshot.data!.docs.map((campes) {
-                                if (campes['content'] == null) {
-                                  campes.reference.update({
-                                    'content': '( 未入力 )',
-                                  });
-                                } else if (campes['content'] == bool) {
-                                  campes.reference.update({
-                                    'content': '( 未入力 )',
-                                  });
-                                }
-                                return Center(
-                                  child: Card(
-                                    elevation: 8,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: ListTile(
-                                      dense: false,
-                                      title: Text(campes['content'].toString()),
-                                      onLongPress: () {
-                                        campes.reference.delete();
-                                      },
-                                      onTap: () async {
-                                        var updatedContent =
-                                            await Navigator.push(context,
-                                                MaterialPageRoute(
-                                                    builder: (context) {
-                                          return UpdatePage(
-                                              oldText: campes['content']);
-                                        }));
-                                        campes.reference.update({
-                                          'content': updatedContent,
-                                          'updatedAt': DateTime.now()
-                                        });
-                                      },
-                                    ),
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Flexible(
+                    child: StreamBuilder(
+                        stream: campeRef
+                            .orderBy(
+                              'createdAt',
+                              descending: false,
+                            )
+                            .snapshots(),
+                        builder:
+                            (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                          if (!snapshot.hasData) {
+                            return const CircularProgressIndicator();
+                          }
+                          return ListView(
+                            children: snapshot.data!.docs.map((campes) {
+                              if (campes['content'] == null) {
+                                campes.reference.update({
+                                  'content': '( 未入力 )',
+                                });
+                              } else if (campes['content'] == bool) {
+                                campes.reference.update({
+                                  'content': '( 未入力 )',
+                                });
+                              }
+                              return Center(
+                                child: Card(
+                                  elevation: 8,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
-                                );
-                              }).toList(),
-                            );
-                          })),
-                ],
-              ),
+                                  child: ListTile(
+                                    dense: false,
+                                    title: Text(campes['content'].toString()),
+                                    onLongPress: () {
+                                      campes.reference.delete();
+                                    },
+                                    onTap: () async {
+                                      var updatedContent =
+                                          await Navigator.push(context,
+                                              MaterialPageRoute(
+                                                  builder: (context) {
+                                        return UpdatePage(
+                                            oldText: campes['content']);
+                                      }));
+                                      campes.reference.update({
+                                        'content': updatedContent,
+                                        'updatedAt': DateTime.now()
+                                      });
+                                    },
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          );
+                        })),
+              ],
             ),
           ),
         ),
