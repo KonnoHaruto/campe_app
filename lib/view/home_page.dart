@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                             return const CircularProgressIndicator();
                           } 
                           return ListView(
-                            children: snapshot.data!.docs.map((campes) {
+                            children: snapshot.data!.docs.map((QueryDocumentSnapshot campes) {
                               if (campes['content'] == null) {
                                 campes.reference.update({
                                   'content': '( 未入力 )',
