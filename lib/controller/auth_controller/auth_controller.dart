@@ -29,4 +29,8 @@ class AuthController extends StateNotifier<User?> {
   void signOut() async {
     await _read(authRepositoryProvider).signOut();
   }
+
+  void signInAnoymously() async {
+    await _read(authRepositoryProvider).signInAnoymously();
+  }
 }
