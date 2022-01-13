@@ -25,7 +25,7 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
         state = AsyncValue.data(campes);
       }
     } on CustomException catch (error, st) {
-      state = AsyncValue.error(error, st);
+      state = AsyncValue.error(error, stackTrace: st);
     }
   }
 
@@ -74,7 +74,7 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
             campes..removeWhere((campe) => campe.id == campeId));
       });
     } on CustomException catch (error) {
-      _read(campeListExceptionProvider).state = error;
+      _read(campeListExceptionProvider.state).state = error;
     }
   }
 }
