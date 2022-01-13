@@ -11,7 +11,7 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   CampeListController(this._read, this._userId)
       : super(const AsyncValue.loading()) {
     if (_userId != null) {
-      // implement
+      retriveCampes();
     }
   }
 
@@ -36,6 +36,7 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
       final campeId = await _read(campeRepositoryProvider).createCampe(
         userId: _userId!,
         campe: campe,
+        createdAt: DateTime.now(),
       );
       state.whenData((campes) =>
           state = AsyncValue.data(campes..add(campe.copyWith(id: campeId))));

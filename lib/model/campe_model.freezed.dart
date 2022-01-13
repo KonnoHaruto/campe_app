@@ -21,10 +21,9 @@ Campe _$CampeFromJson(Map<String, dynamic> json) {
 class _$CampeTearOff {
   const _$CampeTearOff();
 
-  _Campe call({String? id, String? createdAt, required String name}) {
+  _Campe call({String? id, required String name}) {
     return _Campe(
       id: id,
-      createdAt: createdAt,
       name: name,
     );
   }
@@ -40,7 +39,6 @@ const $Campe = _$CampeTearOff();
 /// @nodoc
 mixin _$Campe {
   String? get id => throw _privateConstructorUsedError;
-  String? get createdAt => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,7 +50,7 @@ mixin _$Campe {
 abstract class $CampeCopyWith<$Res> {
   factory $CampeCopyWith(Campe value, $Res Function(Campe) then) =
       _$CampeCopyWithImpl<$Res>;
-  $Res call({String? id, String? createdAt, String name});
+  $Res call({String? id, String name});
 }
 
 /// @nodoc
@@ -66,17 +64,12 @@ class _$CampeCopyWithImpl<$Res> implements $CampeCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? createdAt = freezed,
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: createdAt == freezed
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
               as String?,
       name: name == freezed
           ? _value.name
@@ -91,7 +84,7 @@ abstract class _$CampeCopyWith<$Res> implements $CampeCopyWith<$Res> {
   factory _$CampeCopyWith(_Campe value, $Res Function(_Campe) then) =
       __$CampeCopyWithImpl<$Res>;
   @override
-  $Res call({String? id, String? createdAt, String name});
+  $Res call({String? id, String name});
 }
 
 /// @nodoc
@@ -106,17 +99,12 @@ class __$CampeCopyWithImpl<$Res> extends _$CampeCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? createdAt = freezed,
     Object? name = freezed,
   }) {
     return _then(_Campe(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: createdAt == freezed
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
               as String?,
       name: name == freezed
           ? _value.name
@@ -129,7 +117,7 @@ class __$CampeCopyWithImpl<$Res> extends _$CampeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Campe extends _Campe with DiagnosticableTreeMixin {
-  const _$_Campe({this.id, this.createdAt, required this.name}) : super._();
+  const _$_Campe({this.id, required this.name}) : super._();
 
   factory _$_Campe.fromJson(Map<String, dynamic> json) =>
       _$$_CampeFromJson(json);
@@ -137,13 +125,11 @@ class _$_Campe extends _Campe with DiagnosticableTreeMixin {
   @override
   final String? id;
   @override
-  final String? createdAt;
-  @override
   final String name;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Campe(id: $id, createdAt: $createdAt, name: $name)';
+    return 'Campe(id: $id, name: $name)';
   }
 
   @override
@@ -152,7 +138,6 @@ class _$_Campe extends _Campe with DiagnosticableTreeMixin {
     properties
       ..add(DiagnosticsProperty('type', 'Campe'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
       ..add(DiagnosticsProperty('name', name));
   }
 
@@ -162,9 +147,6 @@ class _$_Campe extends _Campe with DiagnosticableTreeMixin {
         (other is _Campe &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)));
   }
@@ -173,7 +155,6 @@ class _$_Campe extends _Campe with DiagnosticableTreeMixin {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(createdAt) ^
       const DeepCollectionEquality().hash(name);
 
   @JsonKey(ignore: true)
@@ -188,16 +169,13 @@ class _$_Campe extends _Campe with DiagnosticableTreeMixin {
 }
 
 abstract class _Campe extends Campe {
-  const factory _Campe({String? id, String? createdAt, required String name}) =
-      _$_Campe;
+  const factory _Campe({String? id, required String name}) = _$_Campe;
   const _Campe._() : super._();
 
   factory _Campe.fromJson(Map<String, dynamic> json) = _$_Campe.fromJson;
 
   @override
   String? get id => throw _privateConstructorUsedError;
-  @override
-  String? get createdAt => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
