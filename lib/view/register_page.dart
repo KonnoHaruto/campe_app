@@ -1,32 +1,22 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:campe_app/controller/auth_controller/auth_controller_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'root_page.dart';
 
-class RegisterPage extends StatefulWidget {
+class RegisterPage extends ConsumerWidget {
+  
   const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
-}
-
-class _RegisterPageState extends State<RegisterPage> {
-  final auth = FirebaseAuth.instance;
-
-
-  Future<void> signIn() async {
-    await auth.signInAnonymously();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final auth = ref.watch(authControllerProvider.notifier);
     return Scaffold(
       body: SafeArea(
         child: Center(
           child: Column(
             children: <Widget>[
-              // Icon
               Container(
                 padding: const EdgeInsets.only(top: 270),
                 child: const FaIcon(
@@ -51,14 +41,16 @@ class _RegisterPageState extends State<RegisterPage> {
                           fontWeight: FontWeight.bold,
                         )),
                     onPressed: () {
-                            signIn();
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
+                      auth.signInAnoymously();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
                               return RootPage();
                             },
                             fullscreenDialog: true,
-                            ));
-                          },
+                          ));
+                    },
                   ),
                 ),
               ),
