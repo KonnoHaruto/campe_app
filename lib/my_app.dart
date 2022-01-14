@@ -1,4 +1,4 @@
-import 'package:campe_app/view/register_page.dart';
+import 'package:campe_app/view/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       title: 'カンペアプリ',
-      home: const RegisterPage(),
+      home: const RegisterScreen(),
       );
   }
 }

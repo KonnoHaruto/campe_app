@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../reference.dart';
+import '../../reference.dart';
 import 'info_screen.dart';
-import 'update_page.dart';
+import 'update_screen.dart';
 
 class HomeScreen extends ConsumerWidget {
 
@@ -121,7 +121,7 @@ class HomeScreen extends ConsumerWidget {
                                       var updatedContent = await Navigator.push(
                                           context,
                                           MaterialPageRoute(builder: (context) {
-                                        return UpdatePage(
+                                        return UpdateScreen(
                                             oldText: campes['content']);
                                       }));
                                       campes.reference.update({

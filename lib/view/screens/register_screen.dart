@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'root_page.dart';
+import '../root_page.dart';
 
-class RegisterPage extends ConsumerWidget {
+class RegisterScreen extends ConsumerWidget {
   
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

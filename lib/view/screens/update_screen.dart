@@ -2,15 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class UpdatePage extends StatefulWidget {
-  const UpdatePage({Key? key, required this.oldText}) : super(key: key);
+class UpdateScreen extends StatefulWidget {
+  const UpdateScreen({Key? key, required this.oldText}) : super(key: key);
   final String oldText;
 
   @override
-  State<UpdatePage> createState() => _UpdatePageState();
+  State<UpdateScreen> createState() => _UpdateScreenState();
 }
 
-class _UpdatePageState extends State<UpdatePage> {
+class _UpdateScreenState extends State<UpdateScreen> {
   late TextEditingController _textEditingController;
 
   @override

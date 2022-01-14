@@ -30,13 +30,13 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   }
 
   // カンペを追加
-  Future<void> addCampe({required String name}) async {
+  Future<void> addCampe(
+      {required String name}) async {
     try {
       final campe = Campe(name: name);
       final campeId = await _read(campeRepositoryProvider).createCampe(
         userId: _userId!,
         campe: campe,
-        createdAt: DateTime.now(),
       );
       state.whenData((campes) =>
           state = AsyncValue.data(campes..add(campe.copyWith(id: campeId))));

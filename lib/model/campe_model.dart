@@ -15,7 +15,7 @@ abstract class Campe with _$Campe {
 
   factory Campe.fromJson(Map<String, dynamic> json) => _$CampeFromJson(json);
 
-  factory Campe.empty() => const Campe(name: '');
+  factory Campe.empty() => const Campe(name: "");
 
   factory Campe.fromDocument(dynamic doc) {
     final data = doc.data()!;

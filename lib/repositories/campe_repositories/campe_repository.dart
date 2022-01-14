@@ -14,11 +14,10 @@ class CampeRepository implements BaseCampeRepository {
   Future<String> createCampe({
     required String userId,
     required Campe campe,
-    required DateTime createdAt,
   }) async {
     try {
       final docRef =
-          await _read(firebaseFirestoreProvider).userListRef(userId).add({campe, createdAt});
+          await _read(firebaseFirestoreProvider).userListRef(userId).add(campe);
       return docRef.id;
     } on FirebaseException catch (error) {
       throw CustomException(message: error.message);

@@ -1,4 +1,4 @@
-import 'package:campe_app/view/new_home_screen.dart';
+import 'package:campe_app/view/screens/new_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
