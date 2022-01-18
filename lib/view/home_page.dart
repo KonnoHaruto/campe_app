@@ -61,10 +61,7 @@ class _HomePageState extends State<HomePage> {
                 Flexible(
                     child: StreamBuilder(
                         stream: campeRef
-                            .orderBy(
-                              'createdAt',
-                              descending: false,
-                            )
+                            .orderBy('createdAt', descending: false)
                             .snapshots(),
                         builder:
                             (context, AsyncSnapshot<QuerySnapshot> snapshot) {

@@ -13,7 +13,6 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final auth = FirebaseAuth.instance;
 
-  late bool _isDisabled = false;
 
   Future<void> signIn() async {
     auth.signInAnonymously();
