@@ -1,10 +1,10 @@
+import 'package:campe_app/view/screens/new_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'adding_page.dart';
-import 'home_page.dart';
-import 'preview_page.dart';
+import 'screens/adding_screen.dart';
+import 'screens/preview_screen.dart';
 
 final pageProvider = StateProvider<PageType>((ref) => PageType.home);
 
@@ -14,8 +14,8 @@ enum PageType { home, preview }
 class RootPage extends ConsumerWidget {
   RootPage ({Key? key}) : super(key: key);
   final List<Widget> _pageList = <Widget>[
-    const HomePage(),
-    const PreviewPage(),
+    const NewHomeScreen(),
+    const PreviewScreen(),
   ];
 
   final _tabItems = [
@@ -30,8 +30,8 @@ class RootPage extends ConsumerWidget {
 ];
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final pageType = watch(pageProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final pageType = ref.watch(pageProvider.state);
 
     return Scaffold(
         body: _pageList[pageType.state.index],
@@ -50,7 +50,7 @@ class RootPage extends ConsumerWidget {
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (BuildContext context) {
-                return const AddingPage();
+                return const AddingScreen();
               },
             ));
           },

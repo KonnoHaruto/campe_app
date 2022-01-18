@@ -1,16 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import '../reference.dart';
+import '../../reference.dart';
 
-class PreviewPage extends StatefulWidget {
-  const PreviewPage({Key? key}) : super(key: key);
+class PreviewScreen extends StatefulWidget {
+  const PreviewScreen({Key? key}) : super(key: key);
 
   @override
-  State<PreviewPage> createState() => _PreviewPageState();
+  State<PreviewScreen> createState() => _PreviewScreenState();
 }
 
-class _PreviewPageState extends State<PreviewPage> {
+class _PreviewScreenState extends State<PreviewScreen> {
   @override
   Widget build(BuildContext context) {
     final PageController controller = PageController(initialPage: 0);

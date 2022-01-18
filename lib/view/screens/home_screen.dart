@@ -1,26 +1,21 @@
+import 'package:campe_app/controller/auth_controller/auth_controller_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../reference.dart';
-import 'info_page.dart';
-import 'update_page.dart';
+import '../../reference.dart';
+import 'info_screen.dart';
+import 'update_screen.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomeScreen extends ConsumerWidget {
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final _auth = FirebaseAuth.instance;
-  User? user = FirebaseAuth.instance.currentUser;
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final auth = ref.watch(authControllerProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -40,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             icon: const FaIcon(FontAwesomeIcons.infoCircle),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) {
-                return const InfoPage();
+                return const InfoScreen();
               }));
             },
           )
@@ -48,8 +43,8 @@ class _HomePageState extends State<HomePage> {
         leadingWidth: 90,
         leading: IconButton(
             icon: const FaIcon(FontAwesomeIcons.signInAlt),
-            onPressed: () async {
-              await _auth.signOut();
+            onPressed: () {
+              auth.signOut();
               Navigator.pop(context);
             }),
       ),
@@ -69,7 +64,8 @@ class _HomePageState extends State<HomePage> {
                             return const CircularProgressIndicator();
                           }
                           return ListView(
-                            children: snapshot.data!.docs.map((campes) {
+                            children: snapshot.data!.docs
+                                .map((QueryDocumentSnapshot campes) {
                               if (campes['content'] == null) {
                                 campes.reference.update({
                                   'content': '( 未入力 )',

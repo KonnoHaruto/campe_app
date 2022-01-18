@@ -1,13 +1,22 @@
+import 'package:campe_app/controller/auth_controller/auth_controller_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'root_page.dart';
+import '../root_page.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+class RegisterScreen extends ConsumerWidget {
+  
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
 }
 
 class _RegisterPageState extends State<RegisterPage> {
