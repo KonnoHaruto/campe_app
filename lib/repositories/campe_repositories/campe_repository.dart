@@ -17,7 +17,7 @@ class CampeRepository implements BaseCampeRepository {
   }) async {
     try {
       final docRef =
-          await _read(firebaseFirestoreProvider).userListRef(userId).add(campe);
+          await _read(firebaseFirestoreProvider).userListRef(userId).add(campe.toDocument());
       return docRef.id;
     } on FirebaseException catch (error) {
       throw CustomException(message: error.message);
