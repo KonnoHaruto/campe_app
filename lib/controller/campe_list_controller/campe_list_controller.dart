@@ -64,7 +64,7 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   }
 
   // カンペを削除
-  Future<void> deleteItem({required String campeId}) async {
+  Future<void> deleteCampe({required String campeId}) async {
     try {
       await _read(campeRepositoryProvider).deleteCampe(
         userId: _userId!,
