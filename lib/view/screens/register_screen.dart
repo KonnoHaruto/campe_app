@@ -6,12 +6,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../root_page.dart';
 
 class RegisterScreen extends ConsumerWidget {
-  
   const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final auth = ref.watch(authControllerProvider.notifier);
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -41,7 +39,9 @@ class RegisterScreen extends ConsumerWidget {
                           fontWeight: FontWeight.bold,
                         )),
                     onPressed: () {
-                      auth.signInAnoymously();
+                      ref
+                          .read(authControllerProvider.notifier)
+                          .signInAnoymously();
                       Navigator.push(
                           context,
                           MaterialPageRoute(

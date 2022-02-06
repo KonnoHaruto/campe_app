@@ -1,5 +1,4 @@
 import 'package:campe_app/controller/auth_controller/auth_controller_provider.dart';
-import 'package:campe_app/view/screens/info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,16 +18,6 @@ AppBar homeScreenAppBar(BuildContext context, WidgetRef ref) {
         'カンペ 一覧',
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
-      actions: <Widget>[
-        IconButton(
-          icon: const FaIcon(FontAwesomeIcons.infoCircle),
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_) {
-              return const InfoScreen();
-            }));
-          },
-        )
-      ],
       leadingWidth: 90,
       leading: IconButton(
           icon: const FaIcon(FontAwesomeIcons.signInAlt),
