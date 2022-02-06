@@ -10,29 +10,27 @@ final pageProvider = StateProvider<PageType>((ref) => PageType.home);
 
 enum PageType { home, preview }
 
-
 class RootPage extends ConsumerWidget {
-  RootPage ({Key? key}) : super(key: key);
+  RootPage({Key? key}) : super(key: key);
   final List<Widget> _pageList = <Widget>[
     const NewHomeScreen(),
     const PreviewScreen(),
   ];
 
   final _tabItems = [
-  const BottomNavigationBarItem(
-    icon: FaIcon(FontAwesomeIcons.home),
-    label: 'ホーム',
-  ),
-  const BottomNavigationBarItem(
-    icon: FaIcon(FontAwesomeIcons.alignJustify),
-    label: 'プレビュー',
-  ),
-];
+    const BottomNavigationBarItem(
+      icon: FaIcon(FontAwesomeIcons.home),
+      label: 'ホーム',
+    ),
+    const BottomNavigationBarItem(
+      icon: FaIcon(FontAwesomeIcons.alignJustify),
+      label: 'プレビュー',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final pageType = ref.watch(pageProvider.state);
-
     return Scaffold(
         body: _pageList[pageType.state.index],
         bottomNavigationBar: BottomNavigationBar(
@@ -54,7 +52,6 @@ class RootPage extends ConsumerWidget {
               },
             ));
           },
-        )
-        );
+        ));
   }
 }
