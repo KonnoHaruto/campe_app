@@ -1,4 +1,4 @@
-import 'package:campe_app/view/screens/new_home_screen.dart';
+import 'package:campe_app/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,7 +13,7 @@ enum PageType { home, preview }
 class RootPage extends ConsumerWidget {
   RootPage({Key? key}) : super(key: key);
   final List<Widget> _pageList = <Widget>[
-    const NewHomeScreen(),
+    const HomeScreen(),
     const PreviewScreen(),
   ];
 

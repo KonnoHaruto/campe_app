@@ -1,5 +1,5 @@
 import 'package:campe_app/controller/campe_list_controller/campe_lsit_controller_provider.dart';
-import 'package:campe_app/view/screens/new_home_screen.dart';
+import 'package:campe_app/view/screens/home_screen.dart';
 import 'package:campe_app/view/screens/update_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

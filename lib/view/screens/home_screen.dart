@@ -10,8 +10,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 final currentCampeProvider = Provider<Campe>((_) => throw UnimplementedError());
 
-class NewHomeScreen extends ConsumerWidget {
-  const NewHomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
