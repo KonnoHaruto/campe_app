@@ -8,12 +8,6 @@ AppBar homeScreenAppBar(BuildContext context, WidgetRef ref) {
   return AppBar(
     automaticallyImplyLeading: false,
     elevation: 0,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(25),
-        bottomRight: Radius.circular(25),
-      ),
-    ),
     title: const Text(
       'カンペ 一覧',
       style: TextStyle(fontWeight: FontWeight.bold),
