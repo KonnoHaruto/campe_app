@@ -17,7 +17,7 @@ class MakingScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final nameController =
-        useState<TextEditingController>(TextEditingController());
+        useState<TextEditingController>(TextEditingController(text: campe?.name));
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 90,
