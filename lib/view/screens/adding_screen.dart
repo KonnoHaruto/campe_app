@@ -28,6 +28,11 @@ class AddingScreen extends ConsumerWidget {
                       controller: _textControler,
                       decoration: const InputDecoration(
                         hintText: "ここに入力",
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.indigo,
+                          ),
+                        ),
                       ),
                       autofocus: true,
                       maxLines: null,
@@ -53,6 +58,7 @@ class AddingScreen extends ConsumerWidget {
           }
         },
         child: const FaIcon(FontAwesomeIcons.check),
+        backgroundColor: Colors.indigo,
       ),
     );
   }

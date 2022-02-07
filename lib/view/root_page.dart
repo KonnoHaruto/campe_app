@@ -35,6 +35,7 @@ class RootPage extends ConsumerWidget {
         body: _pageList[pageType.state.index],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: pageType.state.index,
+          fixedColor: Colors.indigo,
           onTap: (index) {
             pageType.state = PageType.values[index];
           },
@@ -43,7 +44,7 @@ class RootPage extends ConsumerWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           // ignore: deprecated_member_use
-          backgroundColor: Theme.of(context).accentColor,
+          backgroundColor: Colors.indigo,
           child: const FaIcon(FontAwesomeIcons.plus),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
