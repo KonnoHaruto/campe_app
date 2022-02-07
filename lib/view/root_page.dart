@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'screens/adding_screen.dart';
+import 'screens/making_screen.dart';
 import 'screens/preview_screen.dart';
 
 final pageProvider = StateProvider<PageType>((ref) => PageType.home);
@@ -49,7 +49,7 @@ class RootPage extends ConsumerWidget {
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (BuildContext context) {
-                return const AddingScreen();
+                return const MakingScreen();
               },
             ));
           },
