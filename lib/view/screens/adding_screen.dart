@@ -25,6 +25,7 @@ class AddingScreen extends ConsumerWidget {
                   width: 300,
                   child: SingleChildScrollView(
                     child: TextField(
+                      cursorColor: Colors.indigo,
                       controller: _textControler,
                       decoration: const InputDecoration(
                         hintText: "ここに入力",
