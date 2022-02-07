@@ -30,9 +30,10 @@ class RegisterScreen extends ConsumerWidget {
                   height: 80,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                        primary: Colors.indigo,
                         shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    )),
+                          borderRadius: BorderRadius.circular(30.0),
+                        )),
                     child: const Text('登録',
                         style: TextStyle(
                           fontSize: 20,

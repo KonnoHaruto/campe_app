@@ -12,6 +12,6 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark(),
       title: 'カンペアプリ',
       home: const RegisterScreen(),
-      );
+    );
   }
 }
