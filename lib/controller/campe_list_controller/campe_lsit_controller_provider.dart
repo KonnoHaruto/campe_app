@@ -6,5 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final campeListControllerProvider =
     StateNotifierProvider<CampeListController, AsyncValue<List<Campe>>>((ref) {
   final user = ref.watch(authControllerProvider);
-  return CampeListController(ref.read, user!.uid);
+  if (user == null) {
+    throw UnimplementedError();
+  }
+  return CampeListController(ref.read, user.uid)..retriveCampes();
 });
