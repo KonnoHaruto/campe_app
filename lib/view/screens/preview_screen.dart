@@ -15,7 +15,7 @@ class PreviewScreen extends ConsumerWidget {
         data: (campes) => campes.isEmpty
             ? const Center(
                 child: Text(
-                  '＋ボタンを押してカンペを作成',
+                  '+ボタンを押してカンペを作成',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               )
