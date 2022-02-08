@@ -10,22 +10,28 @@ class CampeTile extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final campe = ref.watch(currentCampeProvider);
-    return ListTile(
-      title: Text(campe.name),
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return  MakingScreen(campe: campe);
-        }));
-      },
-      onLongPress: () {
-        final id = campe.id;
-        if (id == null) {
-          return;
-        }
-        ref.read(campeListControllerProvider.notifier).deleteCampe(
-              campeId: id
-            );
-      },
+    return Card(
+      elevation: 8,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: ListTile(
+        title: Text(campe.name),
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return MakingScreen(campe: campe);
+          }));
+        },
+        onLongPress: () {
+          final id = campe.id;
+          if (id == null) {
+            return;
+          }
+          ref
+              .read(campeListControllerProvider.notifier)
+              .deleteCampe(campeId: id);
+        },
+      ),
     );
   }
 }
