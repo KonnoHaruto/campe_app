@@ -10,8 +10,8 @@ final pageProvider = StateProvider<PageType>((ref) => PageType.home);
 
 enum PageType { home, preview }
 
-class RootPage extends ConsumerWidget {
-  RootPage({Key? key}) : super(key: key);
+class BottomNavigationBarPage extends ConsumerWidget {
+  BottomNavigationBarPage({Key? key}) : super(key: key);
   final List<Widget> _pageList = <Widget>[
     const HomeScreen(),
     const PreviewScreen(),
