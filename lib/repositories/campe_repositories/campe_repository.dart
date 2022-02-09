@@ -43,7 +43,7 @@ class CampeRepository implements BaseCampeRepository {
   Future<List<Campe>> retriveCampes({required String userId}) async {
     try {
       final snap =
-          await _read(firebaseFirestoreProvider).userListRef(userId).orderBy('createdAt').get();
+          await _read(firebaseFirestoreProvider).userListRef(userId).get();
 
       return snap.docs.map((doc) {
         return Campe.fromDocument(doc);

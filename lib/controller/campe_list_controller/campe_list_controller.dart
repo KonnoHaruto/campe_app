@@ -30,8 +30,7 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   }
 
   // カンペを追加
-  Future<void> addCampe(
-      {required String name}) async {
+  Future<void> addCampe({required String name}) async {
     try {
       final campe = Campe(name: name);
       final campeId = await _read(campeRepositoryProvider).createCampe(

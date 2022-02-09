@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../root_page.dart';
+import '../bottom_navigation_bar_page.dart';
 
 class RegisterScreen extends ConsumerWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -30,9 +30,10 @@ class RegisterScreen extends ConsumerWidget {
                   height: 80,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                        primary: Colors.indigo,
                         shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    )),
+                          borderRadius: BorderRadius.circular(30.0),
+                        )),
                     child: const Text('登録',
                         style: TextStyle(
                           fontSize: 20,
@@ -42,14 +43,10 @@ class RegisterScreen extends ConsumerWidget {
                       ref
                           .read(authControllerProvider.notifier)
                           .signInAnoymously();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return RootPage();
-                            },
-                            fullscreenDialog: true,
-                          ));
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return BottomNavigationBarPage();
+                      }));
                     },
                   ),
                 ),

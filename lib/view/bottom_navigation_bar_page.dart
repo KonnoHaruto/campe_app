@@ -1,17 +1,17 @@
 import 'package:campe_app/view/screens/home_screen.dart';
+import 'package:campe_app/view/screens/preview_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'screens/adding_screen.dart';
-import 'screens/preview_screen.dart';
+import 'screens/making_screen.dart';
 
 final pageProvider = StateProvider<PageType>((ref) => PageType.home);
 
 enum PageType { home, preview }
 
-class RootPage extends ConsumerWidget {
-  RootPage({Key? key}) : super(key: key);
+class BottomNavigationBarPage extends ConsumerWidget {
+  BottomNavigationBarPage({Key? key}) : super(key: key);
   final List<Widget> _pageList = <Widget>[
     const HomeScreen(),
     const PreviewScreen(),
@@ -35,6 +35,7 @@ class RootPage extends ConsumerWidget {
         body: _pageList[pageType.state.index],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: pageType.state.index,
+          fixedColor: Colors.indigo,
           onTap: (index) {
             pageType.state = PageType.values[index];
           },
@@ -43,12 +44,12 @@ class RootPage extends ConsumerWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           // ignore: deprecated_member_use
-          backgroundColor: Theme.of(context).accentColor,
+          backgroundColor: Colors.indigo,
           child: const FaIcon(FontAwesomeIcons.plus),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (BuildContext context) {
-                return const AddingScreen();
+                return const MakingScreen();
               },
             ));
           },
