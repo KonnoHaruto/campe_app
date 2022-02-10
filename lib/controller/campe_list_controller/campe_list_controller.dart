@@ -19,8 +19,10 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   Future<void> retriveCampes({bool isRefreshing = false}) async {
     if (isRefreshing) state = const AsyncValue.loading();
     try {
+      final userId = _userId;
+      if (userId == null) return;
       final campes =
-          await _read(campeRepositoryProvider).retriveCampes(userId: _userId!);
+          await _read(campeRepositoryProvider).retriveCampes(userId: userId);
       if (mounted) {
         state = AsyncValue.data(campes);
       }
@@ -33,8 +35,10 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   Future<void> addCampe({required String name}) async {
     try {
       final campe = Campe(name: name);
+      final userId = _userId;
+      if (userId == null) return;
       final campeId = await _read(campeRepositoryProvider).createCampe(
-        userId: _userId!,
+        userId: userId,
         campe: campe,
       );
       state.whenData((campes) =>
@@ -47,8 +51,10 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   // カンペを編集
   Future<void> updateCampe({required Campe updatedCampe}) async {
     try {
+      final userId = _userId;
+      if (userId == null) return;
       await _read(campeRepositoryProvider).updateCampe(
-        userId: _userId!,
+        userId: userId,
         campe: updatedCampe,
       );
       state.whenData((campes) {
@@ -65,8 +71,10 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   // カンペを削除
   Future<void> deleteCampe({required String campeId}) async {
     try {
+      final userId = _userId;
+      if (userId == null) return;
       await _read(campeRepositoryProvider).deleteCampe(
-        userId: _userId!,
+        userId: userId,
         campeId: campeId,
       );
       state.whenData((campes) {

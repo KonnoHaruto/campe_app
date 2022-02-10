@@ -10,8 +10,8 @@ Future<void> main() async {
       overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
   await Firebase.initializeApp();
   runApp(
-    ProviderScope(
-      child: const MyApp(),
+    const ProviderScope(
+      child: MyApp(),
     ),
   );
 }
