@@ -43,10 +43,10 @@ class RegisterScreen extends ConsumerWidget {
                       ref
                           .read(authControllerProvider.notifier)
                           .signInAnoymously();
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return BottomNavigationBarPage();
-                      }));
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return BottomNavigationBarPage();
+                        }));
                     },
                   ),
                 ),

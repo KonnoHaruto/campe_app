@@ -22,12 +22,17 @@ class AuthController extends StateNotifier<User?> {
     super.dispose();
   }
 
-  bool getCurrentUser() {
+  bool isLoggedIn() {
     final user = _read(authRepositoryProvider).getCurrentUser();
     if (user == null) {
       return false;
     }
     return true;
+  }
+
+  User? getCurrentUser() {
+    final user = _read(authRepositoryProvider).getCurrentUser();
+    return user;
   }
 
   void signOut() async {

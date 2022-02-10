@@ -9,13 +9,14 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authState =
-        ref.watch(authControllerProvider.notifier).getCurrentUser();
+    final isLoggedIn =
+        ref.watch(authControllerProvider.notifier).isLoggedIn();
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
         title: 'カンペアプリ',
-        home: authState ? BottomNavigationBarPage() : const RegisterScreen());
+        home: isLoggedIn ? BottomNavigationBarPage() : const RegisterScreen(),
+        );
   }
 }

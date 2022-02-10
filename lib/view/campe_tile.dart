@@ -1,5 +1,5 @@
 import 'package:campe_app/controller/campe_list_controller/campe_lsit_controller_provider.dart';
-import 'package:campe_app/view/screens/home_screen.dart';
+import 'package:campe_app/view/campe_list.dart';
 import 'package:campe_app/view/screens/making_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,9 +11,9 @@ class CampeTile extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final campe = ref.watch(currentCampeProvider);
     return Card(
-      elevation: 4,
+      elevation: 2,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(9),
       ),
       child: ListTile(
         title: Text(campe.name),
