@@ -11,9 +11,9 @@ class CampeTile extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final campe = ref.watch(currentCampeProvider);
     return Card(
-      elevation: 4,
+      elevation: 2,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(9),
       ),
       child: ListTile(
         title: Text(campe.name),
