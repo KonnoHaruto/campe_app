@@ -2,8 +2,10 @@ import 'package:campe_app/controller/auth_controller/auth_controller_provider.da
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../bottom_navigation_bar_page.dart';
+import 'info_screen.dart';
 
 class RegisterScreen extends ConsumerWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -43,10 +45,10 @@ class RegisterScreen extends ConsumerWidget {
                       ref
                           .read(authControllerProvider.notifier)
                           .signInAnoymously();
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return BottomNavigationBarPage();
-                        }));
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return BottomNavigationBarPage();
+                      }));
                     },
                   ),
                 ),

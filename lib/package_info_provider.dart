@@ -1,1 +1,0 @@
-final packageInfoProvider = Provider<Package_info_state>((ref) => Package_info_state(ref.read()));

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
+import 'info_screen.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,13 +14,14 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         automaticallyImplyLeading: false,
         elevation: 0,
         title: const Text(
           'カンペ 一覧',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        leadingWidth: 90,
+        leadingWidth: 80,
         leading: IconButton(
             icon: const FaIcon(FontAwesomeIcons.signInAlt),
             onPressed: () {
@@ -30,6 +31,15 @@ class HomeScreen extends ConsumerWidget {
                 return const RegisterScreen();
               }), (route) => false);
             }),
+        actions: [
+          IconButton(
+            icon: const FaIcon(FontAwesomeIcons.bars),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const InfoPage()));
+            },
+          ),
+        ],
         backgroundColor: Colors.indigo,
       ),
       body: const CampeList(),
