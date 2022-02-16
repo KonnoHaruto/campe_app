@@ -21,9 +21,10 @@ class HomeScreen extends ConsumerWidget {
         ),
         leadingWidth: 90,
         leading: IconButton(
-          icon: const FaIcon(FontAwesomeIcons.signInAlt),
+          icon: const FaIcon(FontAwesomeIcons.signOutAlt),
           onPressed: () {
-            ref.read(authControllerProvider.notifier).signOut();
+            ref.read(authControllerProvider.notifier)
+            .signOutAndDelete();
             Navigator.pushAndRemoveUntil<void>(
               context,
               MaterialPageRoute(

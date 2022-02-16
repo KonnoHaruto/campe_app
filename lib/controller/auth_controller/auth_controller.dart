@@ -34,8 +34,8 @@ class AuthController extends StateNotifier<User?> {
     return user;
   }
 
-  Future<void> signOut() async {
-    await _read(authRepositoryProvider).signOut();
+  Future<void> signOutAndDelete() async {
+    await _read(authRepositoryProvider).getCurrentUser()!.delete();
   }
 
   Future<void> signInAnoymously() async {
