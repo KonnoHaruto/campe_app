@@ -24,7 +24,7 @@ class HomeScreen extends ConsumerWidget {
           icon: const FaIcon(FontAwesomeIcons.signOutAlt),
           onPressed: () {
             ref.read(authControllerProvider.notifier)
-            .signOutAndDelete();
+            .deleteUser();
             Navigator.pushAndRemoveUntil<void>(
               context,
               MaterialPageRoute(
