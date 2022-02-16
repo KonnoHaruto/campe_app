@@ -13,18 +13,18 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         automaticallyImplyLeading: false,
         elevation: 0,
         title: const Text(
           'カンペ 一覧',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        leadingWidth: 90,
+        leadingWidth: 80,
         leading: IconButton(
           icon: const FaIcon(FontAwesomeIcons.signOutAlt),
           onPressed: () {
-            ref.read(authControllerProvider.notifier)
-            .deleteUser();
+            ref.read(authControllerProvider.notifier).deleteUser();
             Navigator.pushAndRemoveUntil<void>(
               context,
               MaterialPageRoute(
