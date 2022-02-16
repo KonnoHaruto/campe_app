@@ -26,20 +26,23 @@ class PreviewScreen extends ConsumerWidget {
                   final campe = campes[index];
                   return ListTile(
                     title: Center(
-                      child: Text(campe.name, 
-                      style: const TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),),
+                      child: Text(
+                        campe.name,
+                        style: const TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   );
-                }),
+                },
+              ),
         error: (error, _) => CampeListError(
           message: error is CustomException
-          ? error.message!
-          : 'Something went wrong!',
+              ? error.message!
+              : 'Something went wrong!',
         ),
-        loading: () => const Center(child: CircularProgressIndicator())
+        loading: () => const Center(child: CircularProgressIndicator()),
       ),
     );
   }

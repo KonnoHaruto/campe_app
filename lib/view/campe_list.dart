@@ -45,7 +45,7 @@ class CampeList extends ConsumerWidget {
         return CampeListError(
           message: error is CustomException
               ? error.message.toString()
-              : 'Something went wrrong!!',
+              : 'Something went wrong!!',
         );
       },
       loading: () => const Center(child: CircularProgressIndicator()),

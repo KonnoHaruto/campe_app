@@ -1,6 +1,6 @@
 class CustomException implements Exception {
-  final String? message;
   const CustomException({this.message = 'Something went wrong!'});
+  final String? message;
 
   @override
   String toString() => 'CustomException { message: $message }';

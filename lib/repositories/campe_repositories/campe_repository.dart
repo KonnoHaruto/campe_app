@@ -3,12 +3,13 @@ import 'package:campe_app/extension/firestore_extension.dart';
 import 'package:campe_app/firebase_instance_provider.dart';
 import 'package:campe_app/model/campe_model.dart';
 import 'package:campe_app/repositories/campe_repositories/base_campe_repository.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CampeRepository implements BaseCampeRepository {
-  final Reader _read;
   const CampeRepository(this._read);
+  final Reader _read;
 
   @override
   Future<String> createCampe({
@@ -16,8 +17,9 @@ class CampeRepository implements BaseCampeRepository {
     required Campe campe,
   }) async {
     try {
-      final docRef =
-          await _read(firebaseFirestoreProvider).userListRef(userId).add(campe.toDocument());
+      final docRef = await _read(firebaseFirestoreProvider)
+          .userListRef(userId)
+          .add(campe.toDocument());
       return docRef.id;
     } on FirebaseException catch (error) {
       throw CustomException(message: error.message);
