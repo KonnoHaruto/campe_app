@@ -30,23 +30,30 @@ class RegisterScreen extends ConsumerWidget {
                   height: 80,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.indigo,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        )),
-                    child: const Text('登録',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        )),
+                      primary: Colors.indigo,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    child: const Text(
+                      '登録',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     onPressed: () {
                       ref
                           .read(authControllerProvider.notifier)
                           .signInAnoymously();
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return BottomNavigationBarPage();
-                        }));
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (context) {
+                            return BottomNavigationBarPage();
+                          },
+                        ),
+                      );
                     },
                   ),
                 ),
