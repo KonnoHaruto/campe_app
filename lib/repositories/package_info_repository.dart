@@ -2,12 +2,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-final packageInfoRepositoryProvider = Provider<PackageInfoRepository>((_) => throw UnimplementedError());
+final packageInfoRepositoryProvider 
+    = Provider<PackageInfoRepository>((_) => throw UnimplementedError());
 
 class PackageInfoRepository {
   PackageInfoRepository(this._packageInfo);
   final PackageInfo _packageInfo;
 
-  String get SystemVersion => _packageInfo.version;
+  String get appVersion => _packageInfo.version;
 }
-

@@ -40,7 +40,8 @@ class CampeList extends ConsumerWidget {
                   overrides: [currentCampeProvider.overrideWithValue(campe)],
                   child: const CampeTile(),
                 );
-              }),
+              },
+            ),
       error: (error, _) {
         return CampeListError(
           message: error is CustomException
@@ -48,7 +49,20 @@ class CampeList extends ConsumerWidget {
               : 'Something went wrong!!',
         );
       },
-      loading: () => const Center(child: CircularProgressIndicator()),
+      loading: () => Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const <Widget>[
+            Text(
+              '読み込み中...',
+              style: TextStyle(fontWeight: FontWeight.w100, fontSize: 13),
+            ),
+            SizedBox(height: 10),
+            CircularProgressIndicator(),
+          ],
+        ),
+      ),
     );
   }
 }

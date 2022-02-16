@@ -8,12 +8,18 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-      overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+  await SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.manual,
+    overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top],
+  );
+
   late final PackageInfo packageInfo;
+
   await Future.wait([
-    Future  (()async => packageInfo =  await PackageInfo.fromPlatform()),
     Firebase.initializeApp(),
+    Future(() async {
+      packageInfo = await PackageInfo.fromPlatform();
+    }),
   ]);
   runApp(
     ProviderScope(
