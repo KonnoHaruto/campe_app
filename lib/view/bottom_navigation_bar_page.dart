@@ -32,27 +32,31 @@ class BottomNavigationBarPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final pageType = ref.watch(pageProvider.state);
     return Scaffold(
-        body: _pageList[pageType.state.index],
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: pageType.state.index,
-          fixedColor: Colors.indigo,
-          onTap: (index) {
-            pageType.state = PageType.values[index];
-          },
-          items: _tabItems,
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          // ignore: deprecated_member_use
-          backgroundColor: Colors.indigo,
-          child: const FaIcon(FontAwesomeIcons.plus),
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(
+      body: _pageList[pageType.state.index],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: pageType.state.index,
+        fixedColor: Colors.indigo,
+        onTap: (index) {
+          pageType.state = PageType.values[index];
+        },
+        items: _tabItems,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        // ignore: deprecated_member_use
+        backgroundColor: Colors.indigo,
+        child: const FaIcon(FontAwesomeIcons.plus),
+        onPressed: () {
+          Navigator.push<void>(
+            context,
+            MaterialPageRoute(
               builder: (BuildContext context) {
                 return const MakingScreen();
               },
-            ));
-          },
-        ));
+            ),
+          );
+        },
+      ),
+    );
   }
 }

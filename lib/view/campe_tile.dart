@@ -18,9 +18,14 @@ class CampeTile extends ConsumerWidget {
       child: ListTile(
         title: Text(campe.name),
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return MakingScreen(campe: campe);
-          }));
+          Navigator.push<void>(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return MakingScreen(campe: campe);
+              },
+            ),
+          );
         },
         onLongPress: () {
           final id = campe.id;

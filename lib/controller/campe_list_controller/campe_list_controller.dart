@@ -5,9 +5,6 @@ import 'package:campe_app/repositories/campe_repositories/campe_repository_provi
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
-  final Reader _read;
-  final String? _userId;
-
   CampeListController(this._read, this._userId)
       : super(const AsyncValue.loading()) {
     if (_userId != null) {
@@ -15,12 +12,19 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
     }
   }
 
+  final Reader _read;
+  final String? _userId;
+
   // カンペを取得
   Future<void> retriveCampes({bool isRefreshing = false}) async {
-    if (isRefreshing) state = const AsyncValue.loading();
+    if (isRefreshing) {
+      state = const AsyncValue.loading();
+    }
     try {
       final userId = _userId;
-      if (userId == null) return;
+      if (userId == null) {
+        return;
+      }
       final campes =
           await _read(campeRepositoryProvider).retriveCampes(userId: userId);
       if (mounted) {
@@ -36,7 +40,9 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
     try {
       final campe = Campe(name: name);
       final userId = _userId;
-      if (userId == null) return;
+      if (userId == null) {
+        return;
+      }
       final campeId = await _read(campeRepositoryProvider).createCampe(
         userId: userId,
         campe: campe,
@@ -52,7 +58,9 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   Future<void> updateCampe({required Campe updatedCampe}) async {
     try {
       final userId = _userId;
-      if (userId == null) return;
+      if (userId == null) {
+        return;
+      }
       await _read(campeRepositoryProvider).updateCampe(
         userId: userId,
         campe: updatedCampe,
@@ -72,7 +80,9 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   Future<void> deleteCampe({required String campeId}) async {
     try {
       final userId = _userId;
-      if (userId == null) return;
+      if (userId == null) {
+        return;
+      }
       await _read(campeRepositoryProvider).deleteCampe(
         userId: userId,
         campeId: campeId,

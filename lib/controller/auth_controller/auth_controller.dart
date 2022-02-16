@@ -5,16 +5,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AuthController extends StateNotifier<User?> {
-  final Reader _read;
-
-  StreamSubscription<User?>? _authStateChangesSubscription;
-
   AuthController(this._read) : super(null) {
     _authStateChangesSubscription?.cancel();
     _authStateChangesSubscription = _read(authRepositoryProvider)
         .authStateChanges
         .listen((User? user) => state = user);
   }
+
+  final Reader _read;
+  StreamSubscription<User?>? _authStateChangesSubscription;
 
   @override
   void dispose() {
@@ -35,11 +34,11 @@ class AuthController extends StateNotifier<User?> {
     return user;
   }
 
-  void signOut() async {
+  Future<void> signOut() async {
     await _read(authRepositoryProvider).signOut();
   }
 
-  void signInAnoymously() async {
+  Future<void> signInAnoymously() async {
     await _read(authRepositoryProvider).signInAnoymously();
   }
 }

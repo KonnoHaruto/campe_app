@@ -2,8 +2,8 @@ import 'package:campe_app/controller/campe_list_controller/campe_lsit_controller
 import 'package:campe_app/model/campe_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MakingScreen extends HookConsumerWidget {
   const MakingScreen({
@@ -16,8 +16,9 @@ class MakingScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final nameController =
-        useState<TextEditingController>(TextEditingController(text: campe?.name));
+    final nameController = useState<TextEditingController>(
+      TextEditingController(text: campe?.name),
+    );
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 90,
@@ -50,7 +51,7 @@ class MakingScreen extends HookConsumerWidget {
                       cursorColor: Colors.indigo,
                       controller: nameController.value,
                       decoration: const InputDecoration(
-                        hintText: "ここに入力",
+                        hintText: 'ここに入力',
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.indigo,
@@ -91,8 +92,8 @@ class MakingScreen extends HookConsumerWidget {
           nameController.value.clear();
           Navigator.of(context).pop();
         },
-        child: const FaIcon(FontAwesomeIcons.check),
         backgroundColor: Colors.indigo,
+        child: const FaIcon(FontAwesomeIcons.check),
       ),
     );
   }

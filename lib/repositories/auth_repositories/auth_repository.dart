@@ -5,8 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AuthRepository implements BaseAuthRepository {
-  final Reader _read;
   const AuthRepository(this._read);
+  final Reader _read;
 
   @override
   Stream<User?> get authStateChanges =>
