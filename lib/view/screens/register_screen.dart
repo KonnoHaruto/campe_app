@@ -2,8 +2,10 @@ import 'package:campe_app/controller/auth_controller/auth_controller_provider.da
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../bottom_navigation_bar_page.dart';
+import 'info_screen.dart';
 
 class RegisterScreen extends ConsumerWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -30,30 +32,23 @@ class RegisterScreen extends ConsumerWidget {
                   height: 80,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.indigo,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: const Text(
-                      '登録',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                        primary: Colors.indigo,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        )),
+                    child: const Text('登録',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        )),
                     onPressed: () {
                       ref
                           .read(authControllerProvider.notifier)
                           .signInAnoymously();
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (context) {
-                            return BottomNavigationBarPage();
-                          },
-                        ),
-                      );
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return BottomNavigationBarPage();
+                      }));
                     },
                   ),
                 ),
