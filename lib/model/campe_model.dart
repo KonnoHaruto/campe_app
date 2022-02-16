@@ -1,25 +1,27 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'campe_model.freezed.dart';
 part 'campe_model.g.dart';
 
 @freezed
 abstract class Campe with _$Campe {
-  const Campe._();
-
   const factory Campe({
     String? id,
     required String name,
   }) = _Campe;
 
-  factory Campe.fromJson(Map<String, dynamic> json) => _$CampeFromJson(json);
+  const Campe._();
 
-  factory Campe.empty() => const Campe(name: "");
+  factory Campe.fromJson(Map<String, dynamic>? json) => _$CampeFromJson(json!);
 
-  factory Campe.fromDocument(dynamic doc) {
-    final data = doc.data()!;
-    return Campe.fromJson(data).copyWith(id: doc.id);
+  factory Campe.empty() => const Campe(name: '');
+
+  factory Campe.fromDocument(QueryDocumentSnapshot<Object?> doc) {
+    final data = doc.data();
+    final castedData = data as Map<String, dynamic>?;
+    return Campe.fromJson(castedData).copyWith(id: doc.id);
   }
 
   Map<String, dynamic> toDocument() => toJson()..remove('id');
