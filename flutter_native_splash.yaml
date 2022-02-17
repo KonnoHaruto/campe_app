@@ -1,3 +1,4 @@
 flutter_native_splash:
-  image: "assets/flutter_icon.png" 
-  color: "4DD0E1"
+  image: "assets/campe_remake.png"
+  color: "#FFFFFF"
+  color_dark: "#FFFFFF"
