@@ -1,6 +1,7 @@
 import 'package:campe_app/controller/campe_list_controller/campe_lsit_controller_provider.dart';
 import 'package:campe_app/model/campe_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -40,28 +41,28 @@ class MakingScreen extends HookConsumerWidget {
       body: SafeArea(
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                padding: const EdgeInsets.only(top: 100),
-                child: SizedBox(
-                  width: 300,
-                  child: SingleChildScrollView(
-                    child: TextField(
-                      cursorColor: Colors.indigo,
-                      controller: nameController.value,
-                      decoration: const InputDecoration(
-                        hintText: 'ここに入力',
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.indigo,
-                          ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: SingleChildScrollView(
+                  child: TextField(
+                    cursorColor: Colors.indigo,
+                    controller: nameController.value,
+                    decoration: const InputDecoration(
+                      hintText: 'ここに入力',
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.indigo,
                         ),
                       ),
-                      autofocus: true,
-                      maxLines: null,
-                      textAlign: TextAlign.left,
                     ),
+                    keyboardType: TextInputType.multiline,
+                    textAlign: TextAlign.left,
+                    autofocus: true,
+                    maxLines: null,
+                    maxLength: 255,
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   ),
                 ),
               ),
