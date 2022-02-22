@@ -2,7 +2,7 @@ import 'package:campe_app/controller/campe_list_controller/campe_lsit_controller
 import 'package:campe_app/exception/custom_exception.dart';
 import 'package:campe_app/model/campe_model.dart';
 import 'package:campe_app/view/campe_list_error.dart';
-import 'package:campe_app/view/campe_tile.dart';
+import 'package:campe_app/view/widgets/campe_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

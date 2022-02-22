@@ -1,6 +1,6 @@
 import 'package:campe_app/controller/campe_list_controller/campe_lsit_controller_provider.dart';
-import 'package:campe_app/view/campe_list.dart';
 import 'package:campe_app/view/screens/making_screen.dart';
+import 'package:campe_app/view/widgets/campe_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
