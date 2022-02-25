@@ -61,7 +61,7 @@ class MakingScreen extends HookConsumerWidget {
                     textAlign: TextAlign.left,
                     autofocus: true,
                     maxLines: null,
-                    maxLength: 255,
+                    maxLength: 125,
                     maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   ),
                 ),
