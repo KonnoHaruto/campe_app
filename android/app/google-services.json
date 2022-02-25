@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "436777264192",
+    "project_id": "campe-app",
+    "storage_bucket": "campe-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436777264192:android:9dfd9fdf7a636cdb88eba5",
+        "android_client_info": {
+          "package_name": "com.example.campe_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436777264192-7v28a981s9bvls0g9lhq89qss5ofuq4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGyAKjqIs7I_-IsPBn3s9pseGmlLy17lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436777264192-7v28a981s9bvls0g9lhq89qss5ofuq4e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "436777264192-hoeh7bvh05o4pmkahp55262qi0j5h191.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.campeApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
