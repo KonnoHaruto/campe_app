@@ -12,7 +12,6 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        elevation: 0,
         title: const Text(
           'かんぺ 一覧',
           style: TextStyle(fontWeight: FontWeight.bold),
