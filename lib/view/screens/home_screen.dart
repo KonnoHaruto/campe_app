@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         elevation: 0,
         title: const Text(
-          'カンペ 一覧',
+          'かんぺ 一覧',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leadingWidth: 80,
