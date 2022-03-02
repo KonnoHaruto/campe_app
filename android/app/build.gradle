@@ -49,8 +49,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.campe_app"
+        applicationId "com.haruto.campe_app"
         minSdkVersion 24
         targetSdkVersion 31
         multiDexEnabled true
@@ -68,7 +67,7 @@ android {
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.debug
         }
     }
 }

@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:436777264192:android:9dfd9fdf7a636cdb88eba5",
+        "mobilesdk_app_id": "1:436777264192:android:c299db3bf85d3b7688eba5",
         "android_client_info": {
-          "package_name": "com.example.campe_app"
+          "package_name": "com.haruto.campe_app"
         }
       },
       "oauth_client": [
