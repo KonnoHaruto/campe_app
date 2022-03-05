@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'campe_model.dart';
@@ -21,14 +22,18 @@ Campe _$CampeFromJson(Map<String, dynamic> json) {
 class _$CampeTearOff {
   const _$CampeTearOff();
 
-  _Campe call({String? id, required String name}) {
+  _Campe call(
+      {String? id,
+      required String name,
+      @TimestampConverter() DateTime? createdAt}) {
     return _Campe(
       id: id,
       name: name,
+      createdAt: createdAt,
     );
   }
 
-  Campe fromJson(Map<String, Object> json) {
+  Campe fromJson(Map<String, Object?> json) {
     return Campe.fromJson(json);
   }
 }
@@ -40,6 +45,8 @@ const $Campe = _$CampeTearOff();
 mixin _$Campe {
   String? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  @TimestampConverter()
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +57,8 @@ mixin _$Campe {
 abstract class $CampeCopyWith<$Res> {
   factory $CampeCopyWith(Campe value, $Res Function(Campe) then) =
       _$CampeCopyWithImpl<$Res>;
-  $Res call({String? id, String name});
+  $Res call(
+      {String? id, String name, @TimestampConverter() DateTime? createdAt});
 }
 
 /// @nodoc
@@ -65,6 +73,7 @@ class _$CampeCopyWithImpl<$Res> implements $CampeCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -75,6 +84,10 @@ class _$CampeCopyWithImpl<$Res> implements $CampeCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -84,7 +97,8 @@ abstract class _$CampeCopyWith<$Res> implements $CampeCopyWith<$Res> {
   factory _$CampeCopyWith(_Campe value, $Res Function(_Campe) then) =
       __$CampeCopyWithImpl<$Res>;
   @override
-  $Res call({String? id, String name});
+  $Res call(
+      {String? id, String name, @TimestampConverter() DateTime? createdAt});
 }
 
 /// @nodoc
@@ -100,6 +114,7 @@ class __$CampeCopyWithImpl<$Res> extends _$CampeCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_Campe(
       id: id == freezed
@@ -110,6 +125,10 @@ class __$CampeCopyWithImpl<$Res> extends _$CampeCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -117,7 +136,9 @@ class __$CampeCopyWithImpl<$Res> extends _$CampeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Campe extends _Campe with DiagnosticableTreeMixin {
-  const _$_Campe({this.id, required this.name}) : super._();
+  const _$_Campe(
+      {this.id, required this.name, @TimestampConverter() this.createdAt})
+      : super._();
 
   factory _$_Campe.fromJson(Map<String, dynamic> json) =>
       _$$_CampeFromJson(json);
@@ -126,10 +147,13 @@ class _$_Campe extends _Campe with DiagnosticableTreeMixin {
   final String? id;
   @override
   final String name;
+  @override
+  @TimestampConverter()
+  final DateTime? createdAt;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Campe(id: $id, name: $name)';
+    return 'Campe(id: $id, name: $name, createdAt: $createdAt)';
   }
 
   @override
@@ -138,24 +162,26 @@ class _$_Campe extends _Campe with DiagnosticableTreeMixin {
     properties
       ..add(DiagnosticsProperty('type', 'Campe'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('name', name));
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('createdAt', createdAt));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Campe &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _Campe &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(createdAt));
 
   @JsonKey(ignore: true)
   @override
@@ -169,15 +195,21 @@ class _$_Campe extends _Campe with DiagnosticableTreeMixin {
 }
 
 abstract class _Campe extends Campe {
-  const factory _Campe({String? id, required String name}) = _$_Campe;
+  const factory _Campe(
+      {String? id,
+      required String name,
+      @TimestampConverter() DateTime? createdAt}) = _$_Campe;
   const _Campe._() : super._();
 
   factory _Campe.fromJson(Map<String, dynamic> json) = _$_Campe.fromJson;
 
   @override
-  String? get id => throw _privateConstructorUsedError;
+  String? get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
+  @override
+  @TimestampConverter()
+  DateTime? get createdAt;
   @override
   @JsonKey(ignore: true)
   _$CampeCopyWith<_Campe> get copyWith => throw _privateConstructorUsedError;

@@ -15,7 +15,6 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
   final Reader _read;
   final String? _userId;
 
-  // カンペを取得
   Future<void> retriveCampes({bool isRefreshing = false}) async {
     if (isRefreshing) {
       state = const AsyncValue.loading();
@@ -35,10 +34,12 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
     }
   }
 
-  // カンペを追加
-  Future<void> addCampe({required String name}) async {
+  Future<void> addCampe({
+    required String name,
+    required DateTime createdAt,
+  }) async {
     try {
-      final campe = Campe(name: name);
+      final campe = Campe(name: name, createdAt: createdAt);
       final userId = _userId;
       if (userId == null) {
         return;
@@ -47,14 +48,19 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
         userId: userId,
         campe: campe,
       );
-      state.whenData((campes) =>
-          state = AsyncValue.data(campes..add(campe.copyWith(id: campeId))));
+      state.whenData(
+        (campes) => state = AsyncValue.data(
+          campes
+            ..add(
+              campe.copyWith(id: campeId),
+            ),
+        ),
+      );
     } on CustomException catch (error) {
       _read(campeListExceptionProvider.notifier).state = error;
     }
   }
 
-  // カンペを編集
   Future<void> updateCampe({required Campe updatedCampe}) async {
     try {
       final userId = _userId;
@@ -76,7 +82,6 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
     }
   }
 
-  // カンペを削除
   Future<void> deleteCampe({required String campeId}) async {
     try {
       final userId = _userId;
@@ -89,7 +94,8 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
       );
       state.whenData((campes) {
         state = AsyncValue.data(
-            campes..removeWhere((campe) => campe.id == campeId));
+          campes..removeWhere((campe) => campe.id == campeId),
+        );
       });
     } on CustomException catch (error) {
       _read(campeListExceptionProvider.state).state = error;
