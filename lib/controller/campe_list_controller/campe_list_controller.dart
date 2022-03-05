@@ -34,9 +34,12 @@ class CampeListController extends StateNotifier<AsyncValue<List<Campe>>> {
     }
   }
 
-  Future<void> addCampe({required String name}) async {
+  Future<void> addCampe({
+    required String name,
+    required DateTime createdAt,
+  }) async {
     try {
-      final campe = Campe(name: name);
+      final campe = Campe(name: name, createdAt: createdAt);
       final userId = _userId;
       if (userId == null) {
         return;

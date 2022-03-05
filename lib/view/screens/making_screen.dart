@@ -89,6 +89,7 @@ class MakingScreen extends HookConsumerWidget {
           }
           ref.read(campeListControllerProvider.notifier).addCampe(
                 name: nameController.value.text,
+                createdAt: DateTime.now(),
               );
           nameController.value.clear();
           Navigator.of(context).pop();

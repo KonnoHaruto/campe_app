@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firestore_ref/firestore_ref.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -10,6 +10,7 @@ abstract class Campe with _$Campe {
   const factory Campe({
     String? id,
     required String name,
+    @TimestampConverter() DateTime? createdAt,
   }) = _Campe;
 
   const Campe._();

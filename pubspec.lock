@@ -211,6 +211,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  disposable_provider:
+    dependency: transitive
+    description:
+      name: disposable_provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.4.0"
   dots_indicator:
     dependency: transitive
     description:
@@ -302,6 +309,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.1"
+  firestore_ref:
+    dependency: "direct main"
+    description:
+      name: firestore_ref
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.2"
   fixnum:
     dependency: transitive
     description:
@@ -679,6 +693,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  quiver:
+    dependency: transitive
+    description:
+      name: quiver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1+1"
   riverpod:
     dependency: transitive
     description:
@@ -686,6 +707,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.27.3"
   shared_preferences:
     dependency: transitive
     description:
@@ -756,6 +784,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  simple_logger:
+    dependency: transitive
+    description:
+      name: simple_logger
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.9.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -817,6 +852,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  subscription_holder:
+    dependency: transitive
+    description:
+      name: subscription_holder
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
   term_glyph:
     dependency: transitive
     description:
