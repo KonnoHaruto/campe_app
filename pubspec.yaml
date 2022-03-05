@@ -30,6 +30,7 @@ dependencies:
   firebase_analytics: ^9.1.2
   device_preview: ^1.0.0
   firestore_ref: ^0.13.2
+  animated_text: ^1.0.2
 
 
 dev_dependencies:
