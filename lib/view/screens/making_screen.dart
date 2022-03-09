@@ -74,6 +74,7 @@ class MakingScreen extends HookConsumerWidget {
         onPressed: () {
           if (data) {
             final id = campe?.id;
+            final campeCreatedAt = campe?.createdAt;
             if (id == null) {
               return;
             }
@@ -81,6 +82,7 @@ class MakingScreen extends HookConsumerWidget {
                   updatedCampe: Campe(
                     id: id,
                     name: nameController.value.text,
+                    createdAt: campeCreatedAt,
                   ),
                 );
             nameController.value.clear();
