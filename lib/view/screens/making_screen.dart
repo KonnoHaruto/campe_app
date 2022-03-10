@@ -75,15 +75,16 @@ class MakingScreen extends HookConsumerWidget {
           if (data) {
             final id = campe?.id;
             final campeCreatedAt = campe?.createdAt;
+            final updatedCampe = Campe(
+              id: id,
+              name: nameController.value.text,
+              createdAt: campeCreatedAt,
+              );
             if (id == null) {
               return;
             }
             ref.read(campeListControllerProvider.notifier).updateCampe(
-                  updatedCampe: Campe(
-                    id: id,
-                    name: nameController.value.text,
-                    createdAt: campeCreatedAt,
-                  ),
+                  updatedCampe: updatedCampe,
                 );
             nameController.value.clear();
             Navigator.of(context).pop();
