@@ -21,7 +21,11 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< Updated upstream
     version: "3.2.0"
+=======
+    version: "3.1.11"
+>>>>>>> Stashed changes
   args:
     dependency: transitive
     description:
@@ -273,7 +277,11 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< Updated upstream
     version: "3.3.7"
+=======
+    version: "3.3.6"
+>>>>>>> Stashed changes
   firebase_auth_platform_interface:
     dependency: transitive
     description:
@@ -315,7 +323,7 @@ packages:
       name: firestore_ref
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.2"
+    version: "0.13.3"
   fixnum:
     dependency: transitive
     description:
@@ -360,7 +368,7 @@ packages:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.5"
+    version: "2.1.1"
   flutter_riverpod:
     dependency: "direct main"
     description:
@@ -447,7 +455,7 @@ packages:
       name: http_multi_server
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.0"
+    version: "3.0.1"
   http_parser:
     dependency: transitive
     description:
