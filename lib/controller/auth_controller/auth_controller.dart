@@ -5,6 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AuthController extends StateNotifier<User?> {
+  //ここの処理正直綺麗じゃないから綺麗な形で実装し直したいな。
+  // TODO(Haruto): redesign the rogic.
   AuthController(this._read) : super(null) {
     _authStateChangesSubscription?.cancel();
     _authStateChangesSubscription = _read(authRepositoryProvider)
